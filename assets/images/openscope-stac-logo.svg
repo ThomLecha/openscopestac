@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" role="img" aria-labelledby="title desc">
+  <title id="title">openScope STAC logo</title>
+  <desc id="desc">Simplified radar sweep logo for openScope STAC</desc>
+  <defs>
+    <radialGradient id="radarGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#183647" />
+      <stop offset="100%" stop-color="#0e1c24" />
+    </radialGradient>
+    <linearGradient id="beamGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3ed1d6" stop-opacity="0" />
+      <stop offset="35%" stop-color="#3ed1d6" stop-opacity="0.9" />
+      <stop offset="65%" stop-color="#3ed1d6" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#3ed1d6" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect width="150" height="150" fill="#071219" />
+  <g transform="translate(75 75)">
+    <circle r="65" fill="url(#radarGradient)" stroke="#12303f" stroke-width="4" />
+    <circle r="45" fill="none" stroke="#234d5d" stroke-width="2" stroke-dasharray="2 6" />
+    <circle r="30" fill="none" stroke="#234d5d" stroke-width="2" stroke-dasharray="2 6" />
+    <circle r="15" fill="#0f242f" stroke="#2f7283" stroke-width="2" />
+    <path d="M0 0 L65 0" stroke="#153847" stroke-width="2" />
+    <path d="M0 0 L46 -45" stroke="#153847" stroke-width="2" />
+    <path d="M0 0 L-15 -63" stroke="#153847" stroke-width="2" />
+    <path d="M0 0 L-60 21" stroke="#153847" stroke-width="2" />
+    <path d="M0 0 L-36 54" stroke="#153847" stroke-width="2" />
+    <path d="M0 0 L24 61" stroke="#153847" stroke-width="2" />
+    <path d="M0 0 L60 -24" stroke="#153847" stroke-width="2" />
+    <path d="M-4 -2 L65 0" stroke="url(#beamGradient)" stroke-width="6" stroke-linecap="round" />
+    <circle r="6" fill="#0f242f" stroke="#3ed1d6" stroke-width="2" />
+  </g>
+</svg>
