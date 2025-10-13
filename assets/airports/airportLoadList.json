@@ -412,12 +412,6 @@
         "disabled": true
     },
     {
-        "icao": "lftt",
-        "level": "beginner",
-        "name": "Test Training Field",
-        "premium": false
-    },
-    {
         "icao": "lipz",
         "level": "easy",
         "name": "Venice Marco Polo Airport",
@@ -672,5 +666,11 @@
         "name": "Shanghai Pudong International Airport",
         "premium": false,
         "disabled": true
+    },
+    {
+        "icao": "lftt",
+        "level": "beginner",
+        "name": "Test Training Field",
+        "premium": false
     }
 ]
