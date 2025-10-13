@@ -1,0 +1,570 @@
+{
+  "radio": {
+    "twr": "Test Tower",
+    "app": "Test Approach",
+    "dep": "Test Departure"
+  },
+  "icao": "LFTT",
+  "iata": "TTX",
+  "magnetic_north": 1.5,
+  "ctr_radius": 60,
+  "ctr_ceiling": 18000,
+  "initial_alt": 6000,
+  "position": [
+    "N45.0000",
+    "E3.0000",
+    "1200ft"
+  ],
+  "rangeRings": {
+    "enabled": true,
+    "center": [
+      "N45.0000",
+      "E3.0000"
+    ],
+    "radius_nm": 5.0
+  },
+  "has_terrain": false,
+  "wind": {
+    "angle": 90,
+    "speed": 6
+  },
+  "arrivalRunway": "09",
+  "departureRunway": "09",
+  "defaultMaps": [
+    "Base Map"
+  ],
+  "airspace": [
+    {
+      "floor": 0,
+      "ceiling": 150,
+      "airspace_class": "D",
+      "poly": [
+        [
+          "N45.0000",
+          "E3.0000"
+        ],
+        [
+          "N45.1500",
+          "E3.0000"
+        ],
+        [
+          "N45.0750",
+          "E3.3000"
+        ],
+        [
+          "N44.9250",
+          "E3.3000"
+        ]
+      ]
+    },
+    {
+      "floor": 0,
+      "ceiling": 150,
+      "airspace_class": "D",
+      "poly": [
+        [
+          "N45.0000",
+          "E3.0000"
+        ],
+        [
+          "N44.9250",
+          "E3.3000"
+        ],
+        [
+          "N44.8500",
+          "E3.0000"
+        ],
+        [
+          "N44.9250",
+          "E2.7000"
+        ]
+      ]
+    },
+    {
+      "floor": 0,
+      "ceiling": 150,
+      "airspace_class": "D",
+      "poly": [
+        [
+          "N45.0000",
+          "E3.0000"
+        ],
+        [
+          "N44.9250",
+          "E2.7000"
+        ],
+        [
+          "N45.0750",
+          "E2.7000"
+        ],
+        [
+          "N45.1500",
+          "E3.0000"
+        ]
+      ]
+    }
+  ],
+  "fixes": {
+    "BASIL": [
+      "N44.8500",
+      "E3.2500"
+    ],
+    "BRIE": [
+      "N45.1200",
+      "E2.7000"
+    ],
+    "CHEDR": [
+      "N44.9800",
+      "E2.9800"
+    ],
+    "CRUST": [
+      "N45.0200",
+      "E2.8000"
+    ],
+    "DILL": [
+      "N45.1000",
+      "E3.4000"
+    ],
+    "FONDU": [
+      "N45.0000",
+      "E2.9000"
+    ],
+    "GOUDA": [
+      "N45.2000",
+      "E3.0500"
+    ],
+    "HERB": [
+      "N44.9000",
+      "E3.0500"
+    ],
+    "MINTA": [
+      "N45.1500",
+      "E3.2000"
+    ],
+    "OLIVE": [
+      "N45.0500",
+      "E3.5000"
+    ],
+    "PESTO": [
+      "N45.0000",
+      "E3.4000"
+    ],
+    "SALAD": [
+      "N45.0100",
+      "E3.2000"
+    ],
+    "TOMAT": [
+      "N45.1800",
+      "E3.6000"
+    ],
+    "TTN09": [
+      "N45.0000",
+      "E3.0800"
+    ],
+    "TTN27": [
+      "N45.0000",
+      "E2.9200"
+    ]
+  },
+  "restricted": [
+    {
+      "name": "TEST-RA",
+      "height": "6000ft",
+      "poly": [
+        [
+          "N45.0300",
+          "E3.0000"
+        ],
+        [
+          "N45.0000",
+          "E3.0400"
+        ],
+        [
+          "N44.9700",
+          "E3.0000"
+        ],
+        [
+          "N45.0000",
+          "E2.9600"
+        ]
+      ]
+    }
+  ],
+  "runways": [
+    {
+      "name": [
+        "09",
+        "27"
+      ],
+      "name_offset": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "end": [
+        [
+          "N45.0000",
+          "E2.9900",
+          "1200ft"
+        ],
+        [
+          "N45.0000",
+          "E3.0100",
+          "1200ft"
+        ]
+      ],
+      "length": 2.5,
+      "ils": [
+        false,
+        false
+      ]
+    }
+  ],
+  "airways": {
+    "AIRWAY_A": [
+      "BRIE",
+      "CRUST",
+      "FONDU"
+    ],
+    "AIRWAY_B": [
+      "BASIL",
+      "HERB",
+      "CRUST"
+    ],
+    "AIRWAY_C": [
+      "PESTO",
+      "OLIVE",
+      "TOMAT"
+    ],
+    "AIRWAY_D": [
+      "GOUDA",
+      "MINTA",
+      "DILL"
+    ]
+  },
+  "sids": {
+    "SALAD1": {
+      "icao": "SALAD1",
+      "name": "Salade Un",
+      "altitude": 4000,
+      "rwy": {
+        "LFTT09": [
+          "TTN09"
+        ]
+      },
+      "body": [
+        "SALAD"
+      ],
+      "exitPoints": {
+        "BASIL": [
+          "BASIL"
+        ],
+        "PESTO": [
+          "PESTO"
+        ]
+      },
+      "draw": [
+        [
+          "TTN09",
+          "SALAD",
+          "PESTO*"
+        ],
+        [
+          "SALAD",
+          "BASIL*"
+        ]
+      ]
+    }
+  },
+  "stars": {
+    "CHDR1": {
+      "icao": "CHDR1",
+      "name": "Cheddar Un",
+      "entryPoints": {
+        "BRIE": [
+          "BRIE",
+          "FONDU"
+        ],
+        "GOUDA": [
+          "GOUDA",
+          "FONDU"
+        ]
+      },
+      "body": [
+        "CHEDR"
+      ],
+      "rwy": {
+        "LFTT09": [
+          "TTN09",
+          "#090"
+        ],
+        "LFTT27": [
+          "TTN27",
+          "#270"
+        ]
+      },
+      "draw": [
+        [
+          "BRIE*",
+          "FONDU",
+          "CHEDR",
+          "TTN27"
+        ],
+        [
+          "GOUDA*",
+          "FONDU",
+          "CHEDR",
+          "TTN09"
+        ]
+      ]
+    }
+  },
+  "spawnPatterns": [
+    {
+      "origin": "LFTT",
+      "destination": "",
+      "category": "departure",
+      "route": "LFTT.SALAD1.PESTO",
+      "altitude": "",
+      "speed": "",
+      "method": "random",
+      "rate": 8,
+      "airlines": [
+        [
+          "afr",
+          5
+        ],
+        [
+          "vlg",
+          2
+        ],
+        [
+          "dlh",
+          1
+        ]
+      ]
+    },
+    {
+      "origin": "LFTT",
+      "destination": "",
+      "category": "departure",
+      "route": "LFTT.SALAD1.BASIL",
+      "altitude": "",
+      "speed": "",
+      "method": "random",
+      "rate": 6,
+      "airlines": [
+        [
+          "afr",
+          3
+        ],
+        [
+          "ryr",
+          2
+        ],
+        [
+          "vlg",
+          1
+        ]
+      ]
+    },
+    {
+      "origin": "",
+      "destination": "LFTT",
+      "category": "arrival",
+      "route": "BRIE.CHDR1.LFTT",
+      "altitude": [
+        18000,
+        24000
+      ],
+      "speed": 280,
+      "method": "random",
+      "rate": 10,
+      "airlines": [
+        [
+          "afr",
+          4
+        ],
+        [
+          "dlh",
+          2
+        ],
+        [
+          "ryr",
+          2
+        ]
+      ]
+    },
+    {
+      "origin": "",
+      "destination": "LFTT",
+      "category": "arrival",
+      "route": "GOUDA.CHDR1.LFTT",
+      "altitude": [
+        20000,
+        26000
+      ],
+      "speed": 280,
+      "method": "random",
+      "rate": 9,
+      "airlines": [
+        [
+          "afr",
+          3
+        ],
+        [
+          "dlh",
+          2
+        ],
+        [
+          "ryr",
+          2
+        ]
+      ]
+    }
+  ],
+  "maps": [
+    {
+      "name": "Base Map",
+      "lines": [
+        [
+          "N45.1500",
+          "E3.0000",
+          "N45.0750",
+          "E3.3000"
+        ],
+        [
+          "N45.0750",
+          "E3.3000",
+          "N44.9250",
+          "E3.3000"
+        ],
+        [
+          "N44.9250",
+          "E3.3000",
+          "N44.8500",
+          "E3.0000"
+        ],
+        [
+          "N44.8500",
+          "E3.0000",
+          "N44.9250",
+          "E2.7000"
+        ],
+        [
+          "N44.9250",
+          "E2.7000",
+          "N45.0750",
+          "E2.7000"
+        ],
+        [
+          "N45.0750",
+          "E2.7000",
+          "N45.1500",
+          "E3.0000"
+        ],
+        [
+          "N45.0000",
+          "E3.0000",
+          "N45.0750",
+          "E3.3000"
+        ],
+        [
+          "N45.0000",
+          "E3.0000",
+          "N44.8500",
+          "E3.0000"
+        ],
+        [
+          "N45.0000",
+          "E3.0000",
+          "N45.0750",
+          "E2.7000"
+        ],
+        [
+          "N45.0300",
+          "E3.0000",
+          "N45.0000",
+          "E3.0400"
+        ],
+        [
+          "N45.0000",
+          "E3.0400",
+          "N44.9700",
+          "E3.0000"
+        ],
+        [
+          "N44.9700",
+          "E3.0000",
+          "N45.0000",
+          "E2.9600"
+        ],
+        [
+          "N45.0000",
+          "E2.9600",
+          "N45.0300",
+          "E3.0000"
+        ],
+        [
+          "N44.9300",
+          "E2.8800",
+          "N44.9000",
+          "E2.9400"
+        ],
+        [
+          "N44.9000",
+          "E2.9400",
+          "N44.8600",
+          "E2.9300"
+        ],
+        [
+          "N44.8600",
+          "E2.9300",
+          "N44.8700",
+          "E2.8600"
+        ],
+        [
+          "N44.8700",
+          "E2.8600",
+          "N44.9100",
+          "E2.8400"
+        ],
+        [
+          "N44.9100",
+          "E2.8400",
+          "N44.9300",
+          "E2.8800"
+        ],
+        [
+          "N45.1400",
+          "E3.2500",
+          "N45.2000",
+          "E3.3500"
+        ],
+        [
+          "N45.2000",
+          "E3.3500",
+          "N45.1600",
+          "E3.4500"
+        ],
+        [
+          "N45.1600",
+          "E3.4500",
+          "N45.1000",
+          "E3.3600"
+        ],
+        [
+          "N45.1000",
+          "E3.3600",
+          "N45.1400",
+          "E3.2500"
+        ]
+      ]
+    }
+  ]
+}
