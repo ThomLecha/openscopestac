@@ -59,7 +59,7 @@
       ]
     }
   ],
-  "fixes": {
+"fixes": {
     "AWYA1": ["N45.0250", "E2.2000"],
     "AWYA2": ["N45.0250", "E2.3250"],
     "AWYB1": ["N44.5750", "E2.8000"],
@@ -74,15 +74,11 @@
     "CHEDR": ["N44.9250", "E2.8500"],
     "CRUST": ["N44.9750", "E2.7500"],
     "CAMEM": ["N45.0000", "E2.9000"],
-    "OLIVE2": ["N44.9000", "E3.5500"],
+    "OLIVE": ["N44.9000", "E3.5500"],
     "HERB": ["N44.9500", "E3.3750"],
-    "PESTO2": ["N45.2250", "E3.2000"],
+    "PESTO": ["N45.2250", "E3.2000"],
     "MOZZA": ["N45.1500", "E3.2250"],
-    "TOMAT2": ["N45.0000", "E3.1750"],
-    "ASUPR1": ["N45.0100", "E3.2000"],
-    "ASUPR2": ["N45.1800", "E3.6000"],
-    "TST09": ["N45.0000", "E3.0800"],
-    "TST27": ["N45.0000", "E2.9200"]
+    "TOMAT": ["N45.0000", "E3.1750"]
   },
   "restricted": [
     {
@@ -104,46 +100,48 @@
           ["N45.0000", "E2.9900", "1200ft"],
           ["N45.0000", "E3.0100", "1200ft"]
       ],
-      "length": 2.5,
-      "ils": [false, false]
+      "ils": [true, true]
     }
   ],
   "airways": {
-    "AIRWAY_A": ["CHKEN", "CHEDR", "CAMEM"],
-    "AIRWAY_B": ["GOUDA", "HERB", "CHEDR"],
-    "AIRWAY_C": ["TOMAT2", "MOZZA", "ASUPR2"],
-    "AIRWAY_D": ["OLIVE2", "PESTO2", "CRUST"]
+    "AWYA": ["AWYA1", "AWYA2", "GOUDA"],
+    "AWYB": ["AWYB1", "AWYB2", "CHKEN"],
+    "AWYC": ["OLIVE", "AWYC2", "AWYC1"],
+    "AWYD": ["PESTO", "AWYD2", "AWYD1"]
   },
   "sids": {
-    "SALAD1": {
-      "icao": "SALAD1",
+    "SALADE1": {
+      "icao": "SALADE1",
       "name": "Salade Un",
       "altitude": 4000,
-      "rwy": { "LFTT09": ["TST09"] },
-      "body": ["ASUPR1"],
-      "exitPoints": { "OLIVE2": ["OLIVE2"], "TOMAT2": ["TOMAT2"] },
+      "rwy": { "LFTT09": ["TOMAT"] },
+      "exitPoints": {
+        "OLIVE": ["HERB", "OLIVE"],
+        "PESTO": ["MOZZA", "PESTO"]
+      },
       "draw": [
-        ["TST09", "ASUPR1", "TOMAT2*"],
-        ["ASUPR1", "OLIVE2*"]
+        ["SALADE1", "OLIVE*"],
+        ["SALADE1", "PESTO*"]
       ]
     }
   },
   "stars": {
-    "CHDR1": {
-      "icao": "CHDR1",
+    "CHEDR1": {
+      "icao": "CHEDR1",
       "name": "Cheddar Un",
       "entryPoints": {
-        "CHKEN": ["CHKEN", "CAMEM"],
-        "GOUDA": ["GOUDA", "CAMEM"]
+        "GOUDA": ["GOUDA"],
+        "CHKEN": ["CHKEN", "FRIED", "CHEDR"]
       },
-      "body": ["FRIED"],
+      "body": ["CRUST", "CAMEM"],
       "rwy": {
-        "LFTT09": ["TST09", "#090"],
-        "LFTT27": ["TST27", "#270"]
+        "LFTT09": [],
+        "LFTT27": []
       },
       "draw": [
-        ["CHKEN*", "CAMEM", "FRIED", "TST27"],
-        ["GOUDA*", "CAMEM", "FRIED", "TST09"]
+        ["GOUDA*"],
+        ["CHKEN*", "FRIED", "CHEDR"],
+        ["CRUST", "CAMEM"]
       ]
     }
   },
@@ -152,7 +150,7 @@
       "origin": "LFTT",
       "destination": "",
       "category": "departure",
-      "route": "LFTT09.SALAD1.TOMAT2",
+      "route": "LFTT09.SALADE1.OLIVE.AWYC",
       "altitude": "",
       "speed": "",
       "method": "random",
@@ -163,7 +161,7 @@
       "origin": "LFTT",
       "destination": "",
       "category": "departure",
-      "route": "LFTT09.SALAD1.OLIVE2",
+      "route": "LFTT09.SALADE1.PESTO.AWYD",
       "altitude": "",
       "speed": "",
       "method": "random",
@@ -174,7 +172,7 @@
       "origin": "",
       "destination": "LFTT",
       "category": "arrival",
-      "route": "CHKEN.CHDR1.LFTT09",
+      "route": "AWYA..GOUDA.CHEDR1.LFTT09",
       "altitude": [18000, 24000],
       "speed": 280,
       "method": "random",
@@ -185,11 +183,11 @@
       "origin": "",
       "destination": "LFTT",
       "category": "arrival",
-      "route": "GOUDA.CHDR1.LFTT09",
+      "route": "AWYB..CHKEN.CHEDR1.LFTT09",
       "altitude": [20000, 26000],
       "speed": 280,
       "method": "random",
-      "rate": 9,
+      "rate": 8,
       "airlines": [["afr", 3], ["dlh", 2], ["ryr", 2]]
     }
   ],
