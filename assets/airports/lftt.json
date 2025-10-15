@@ -194,7 +194,7 @@
       "destination": "LFTT",
       "category": "arrival",
       "route": "AWYA1.AWYA.GOUDA.CHEDR1.LFTT09",
-      "altitude": "110000",
+      "altitude": "11000",
       "speed": 310,
       "method": "random",
       "rate": 4,
