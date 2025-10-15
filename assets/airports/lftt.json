@@ -93,7 +93,7 @@
 },
   "restricted": [
     {
-      "name": "TEST-RA",
+      "name": "RESTRICTED AREA TEST",
       "height": "6000ft",
       "poly": [
           ["N45.2000", "E2.8500"],
