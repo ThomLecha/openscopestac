@@ -1,0 +1,265 @@
+{
+  "radio": {
+    "twr": "Test Tower",
+    "app": "Test Approach",
+    "dep": "Test Departure"
+  },
+  "icao": "LFTT",
+  "iata": "TST",
+  "magnetic_north": 1.5,
+  "ctr_radius": 60,
+  "ctr_ceiling": 18000,
+  "initial_alt": 6000,
+  "position": ["N45.0000", "E3.0000", "1200ft"],
+  "rangeRings": {
+    "enabled": true,
+    "center": ["N45.0000", "E3.0000"],
+    "radius_nm": 5.0
+  },
+  "has_terrain": false,
+  "wind": {
+      "angle": 90,
+      "speed": 6
+  },
+  "arrivalRunway": "09",
+  "departureRunway": "09",
+  "defaultMaps": ["Base Map", "Coast Line", "Terrain"],
+  "airspace": [
+    {
+      "floor": 0,
+      "ceiling": 110,
+      "airspace_class": "C",
+      "poly": [
+          ["N45.0000", "E3.0000"],
+          ["N45.3000", "E3.0000"],
+          ["N45.1500", "E3.6000"],
+          ["N44.8500", "E3.6000"]
+      ]
+    },
+    {
+      "floor": 0,
+      "ceiling": 130,
+      "airspace_class": "C",
+      "poly": [
+          ["N45.0000", "E3.0000"],
+          ["N44.8500", "E3.6000"],
+          ["N44.7000", "E3.0000"],
+          ["N44.8500", "E2.4000"]
+      ]
+    },
+    {
+      "floor": 0,
+      "ceiling": 150,
+      "airspace_class": "C",
+      "poly": [
+          ["N45.0000", "E3.0000"],
+          ["N44.8500", "E2.4000"],
+          ["N45.1500", "E2.4000"],
+          ["N45.3000", "E3.0000"]
+      ]
+    }
+  ],
+"fixes": {
+    "AWYA1": ["N45.2000", "E1.5500"],
+    "AWYA2": ["N45.1500", "E2.3250"],
+    "AWYB1": ["N44.2000", "E2.9500"],
+    "AWYB2": ["N44.7250", "E2.6000"],
+    "AWYC1": ["N44.2750", "E3.8500"],
+    "AWYC2": ["N44.8500", "E3.6750"],
+    "AWYD1": ["N45.7500", "E2.7000"],
+    "AWYD2": ["N45.3250", "E3.2250"],
+    "GOUDA": ["N45.0750", "E2.4750"],
+    "CRUST": ["N45.0500", "E2.6250"],
+    "CHKEN": ["N44.8500", "E2.5500"],
+    "FRIED": ["N44.9250", "E2.5750"],
+    "CHEDR": ["N44.9750", "E2.6500"],
+    "CAMEM": ["N45.0000", "E2.7500"],
+    "CNTAL": ["N45.0000", "E2.8750"],
+    "OLIVE": ["N44.9250", "E3.5500"],
+    "PRMSN": ["N45.0000", "E3.3500"],
+    "PESTO": ["N45.2500", "E3.2500"],
+    "MOZZA": ["N45.1250", "E3.2500"],
+    "TOMAT": ["N45.0000", "E3.0750"],
+    "_PNT0": ["N45.5000", "E3.0000"],
+    "_PNT1": ["N45.5000", "E3.0500"],
+    "_PNT2": ["N45.5000", "E3.1000"],
+    "_PNT3": ["N45.5000", "E3.1500"],
+    "_PNT4": ["N45.5000", "E3.2000"],
+    "_PNT5": ["N45.4500", "E3.0000"],
+    "_PNT6": ["N45.4500", "E3.0500"],
+    "_PNT7": ["N45.4500", "E3.1000"],
+    "_PNT8": ["N45.4500", "E3.1500"],
+    "_PNT9": ["N45.4500", "E3.2000"]
+},
+  "restricted": [
+    {
+      "name": "RESTRICTED AREA TEST",
+      "height": "6000ft",
+      "poly": [
+          ["N45.2000", "E2.8500"],
+          ["N45.1500", "E3.0500"],
+          ["N45.0750", "E3.0250"],
+          ["N45.1250", "E2.8250"]
+      ]
+    }
+  ],
+  "runways": [
+    {
+      "name": ["09", "27"],
+      "name_offset": [[0, 0], [0, 0]],
+      "end": [
+          ["N45.0000", "E2.9900", "1200ft"],
+          ["N45.0000", "E3.0100", "1200ft"]
+      ],
+      "ils": [true, true]
+    }
+  ],
+  "airways": {
+    "AWYA": ["AWYA1", "AWYA2", "GOUDA"],
+    "AWYB": ["AWYB1", "AWYB2", "CHKEN"],
+    "AWYC": ["OLIVE", "AWYC2", "AWYC1"],
+    "AWYD": ["PESTO", "AWYD2", "AWYD1"]
+  },
+  "sids": {
+    "SALADE1": {
+      "icao": "SALADE1",
+      "name": "Salade Un",
+      "altitude": 4000,
+      "rwy": { "LFTT09": ["TOMAT"] },
+      "exitPoints": {
+        "OLIVE": ["PRMSN", "OLIVE"],
+        "PESTO": ["MOZZA", "PESTO"]
+      },
+      "draw": [
+        ["LFTT09", "TOMAT", "PRMSN", "OLIVE"],
+        ["LFTT09", "TOMAT", "MOZZA", "PESTO"],
+        ["SALADE1", "OLIVE*"],
+        ["SALADE1", "PESTO*"]
+      ]
+    }
+  },
+  "stars": {
+    "CHEDR1": {
+      "icao": "CHEDR1",
+      "name": "Cheddar Un",
+      "entryPoints": {
+        "GOUDA": ["GOUDA", "CRUST"],
+        "CHKEN": ["CHKEN", "FRIED", "CHEDR"]
+      },
+      "body": ["CAMEM", "CNTAL"],
+      "rwy": {
+        "LFTT09": [],
+        "LFTT27": []
+      },
+      "draw": [
+        ["GOUDA", "CRUST", "CAMEM", "CNTAL","LFTT09"],
+        ["CHKEN", "FRIED", "CHEDR", "CAMEM", "CNTAL","LFTT09"],
+        ["CHEDR1", "GOUDA*"],
+        ["CHEDR1", "CHKEN*"]
+      ]
+    }
+  },
+  "spawnPatterns": [
+    {
+      "origin": "LFTT",
+      "destination": "",
+      "category": "departure",
+      "route": "LFTT09.SALADE1.OLIVE.AWYC.AWYC1",
+      "altitude": "",
+      "speed": "",
+      "method": "random",
+      "rate": 3,
+      "airlines": [
+          ["afr", 50],
+          ["vlg", 30],
+          ["dlh", 20]
+      ]
+    },
+    {
+      "origin": "LFTT",
+      "destination": "",
+      "category": "departure",
+      "route": "LFTT09.SALADE1.PESTO.AWYD.AWYD1",
+      "altitude": "",
+      "speed": "",
+      "method": "random",
+      "rate": 5,
+      "airlines": [
+          ["afr", 60],
+          ["ryr", 30],
+          ["vlg", 10]
+      ]
+    },
+    {
+      "origin": "",
+      "destination": "LFTT",
+      "category": "arrival",
+      "route": "AWYA1.AWYA.GOUDA.CHEDR1.LFTT09",
+      "altitude": "7000",
+      "speed": 290,
+      "method": "random",
+      "rate": 3,
+      "airlines": [
+          ["afr", 60],
+          ["dlh", 20],
+          ["ryr", 20]
+      ]
+    },
+    {
+      "origin": "",
+      "destination": "LFTT",
+      "category": "arrival",
+      "route": "AWYB1.AWYB.CHKEN.CHEDR1.LFTT09",
+      "altitude": "8000",
+      "speed": 270,
+      "method": "random",
+      "rate": 5,
+      "airlines": [
+          ["afr", 30],
+          ["dlh", 40],
+          ["ryr", 30]
+      ]
+    }
+  ],
+  "maps": [
+    {
+      "name": "Base Map",
+      "lines": [
+        ["N45.3000", "E3.0000", "N45.1500", "E3.6000"],
+        ["N45.1500", "E3.6000", "N44.8500", "E3.6000"],
+        ["N44.8500", "E3.6000", "N44.7000", "E3.0000"],
+        ["N44.7000", "E3.0000", "N44.8500", "E2.4000"],
+        ["N44.8500", "E2.4000", "N45.1500", "E2.4000"],
+        ["N45.1500", "E2.4000", "N45.3000", "E3.0000"]
+      ]
+    },
+    {
+      "name": "Coast Line",
+      "lines": [
+        ["N45.8250", "E2.4250", "N45.3250", "E2.7750"],
+        ["N45.3250", "E2.7750", "N45.2250", "E2.9250"],
+        ["N45.2250", "E2.9250", "N45.2250", "E3.1750"],
+        ["N45.2250", "E3.1750", "N45.1250", "E3.3500"],
+        ["N45.1250", "E3.3500", "N45.0750", "E3.5750"],
+        ["N45.0750", "E3.5750", "N45.1250", "E3.7750"],
+        ["N45.1250", "E3.7750", "N44.9750", "E4.3500"]
+      ]
+    },
+    {
+      "name": "Terrain",
+      "lines": [
+        ["N44.9500", "E3.1000", "N44.9000", "E3.1750"],
+        ["N44.9000", "E3.1750", "N44.8250", "E3.1363"],
+        ["N44.8250", "E3.1363", "N44.8250", "E3.0638"],
+        ["N44.8250", "E3.0638", "N44.9000", "E3.0250"],
+        ["N44.9000", "E3.0250", "N44.9500", "E3.1000"],
+
+        ["N45.1000", "E3.3500", "N45.0500", "E3.4250"],
+        ["N45.0500", "E3.4250", "N44.9750", "E3.3863"],
+        ["N44.9750", "E3.3863", "N44.9750", "E3.3138"],
+        ["N44.9750", "E3.3138", "N45.0500", "E3.2750"],
+        ["N45.0500", "E3.2750", "N45.1000", "E3.3500"]
+      ]
+    }
+  ]
+}
