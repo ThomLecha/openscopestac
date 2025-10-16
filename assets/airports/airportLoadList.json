@@ -672,5 +672,11 @@
         "level": "beginner",
         "name": "Test Training Field",
         "premium": false
+    },
+    {
+        "icao": "lfpo",
+        "level": "beginner",
+        "name": "Paris-Orly Airport",
+        "premium": false
     }
 ]
