@@ -282,7 +282,6 @@
       ["EAST", "BATAG*"]
     ]
   },
-
   "NORTH": {
     "icao": "NORTH",
     "name": "Orly Nord",
@@ -296,7 +295,6 @@
       ["NORTH", "PO262*"]
     ]
   },
-
   "SOUTH": {
     "icao": "SOUTH",
     "name": "Orly Sud",
@@ -389,6 +387,51 @@
       ]
     },
     {
+      "origin": "LFPO",
+      "destination": "",
+      "category": "departure",
+      "route": "LFPO24.NORTH.PO262.AWYBOV.BOV",
+      "altitude": "",
+      "speed": "",
+      "method": "random",
+      "rate": 10,
+      "airlines": [
+          ["afr", 50],
+          ["tvf", 40],
+          ["dlh", 10]
+      ]
+    },
+    {
+      "origin": "LFPO",
+      "destination": "",
+      "category": "departure",
+      "route": "LFPO24.SOUTH.ADADA.AWYAGOPA.AGOPA",
+      "altitude": "",
+      "speed": "",
+      "method": "random",
+      "rate": 10,
+      "airlines": [
+          ["afr", 30],
+          ["tvf", 40],
+          ["voe", 30]
+      ]
+    },
+    {
+      "origin": "LFPO",
+      "destination": "",
+      "category": "departure",
+      "route": "LFPO24.WEST.PO191.AWYLGL.LGL",
+      "altitude": "",
+      "speed": "",
+      "method": "random",
+      "rate": 10,
+      "airlines": [
+          ["afr", 40],
+          ["vlg", 30],
+          ["voe", 30]
+      ]
+    },
+    {
       "origin": "",
       "destination": "LFPO",
       "category": "arrival",
@@ -401,6 +444,36 @@
           ["afr", 60],
           ["dlh", 20],
           ["ryr", 20]
+      ]
+    },
+    {
+      "origin": "",
+      "destination": "LFPO",
+      "category": "arrival",
+      "route": "MATIX.AWYMATIX.GITAN.GITAN1.LFPO25",
+      "altitude": "12000",
+      "speed": 300,
+      "method": "random",
+      "rate": 10,
+      "airlines": [
+          ["afr", 50],
+          ["voe", 30],
+          ["ryr", 20]
+      ]
+    },
+    {
+      "origin": "",
+      "destination": "LFPO",
+      "category": "arrival",
+      "route": "TUNOR.AWYTUNOR.OKRIX.OKRIX1.LFPO25",
+      "altitude": "10000",
+      "speed": 310,
+      "method": "random",
+      "rate": 10,
+      "airlines": [
+          ["afr", 30],
+          ["vlg", 20],
+          ["tvf", 50]
       ]
     }
   ],
