@@ -1887,6 +1887,10 @@ export default class CanvasController {
         cc.save();
 
         const airport = AirportController.airport_get();
+        const previousGlobalAlpha = cc.globalAlpha;
+        const airspaceAlpha = this._calculateAirspaceGlobalAlpha();
+
+        cc.globalAlpha = airspaceAlpha;
         cc.strokeStyle = this.theme.SCOPE.AIRSPACE_PERIMETER;
         cc.fillStyle = this.theme.SCOPE.AIRSPACE_FILL;
 
@@ -1896,6 +1900,7 @@ export default class CanvasController {
             this._drawRelativePoly(cc, airspace.relativePoly, true);
         }
 
+        cc.globalAlpha = previousGlobalAlpha;
         // this only includes the last polygon... and therefore does not support multiple
         // airspace shelves, which are now supported elsewhere in the app. Removing for now.
         // cc.clip();
@@ -2223,6 +2228,10 @@ export default class CanvasController {
         cc.save();
         this._ccTranslateFromCanvasOriginToAirportCenter(cc);
 
+        const previousGlobalAlpha = cc.globalAlpha;
+        const airspaceAlpha = this._calculateAirspaceGlobalAlpha();
+
+        cc.globalAlpha = airspaceAlpha;
         cc.fillStyle = this.theme.SCOPE.RESTRICTED_AIRSPACE;
         cc.strokeStyle = this.theme.SCOPE.RESTRICTED_AIRSPACE;
         cc.lineWidth = Math.max(CanvasStageModel.scale / 3, 2);
@@ -2260,7 +2269,27 @@ export default class CanvasController {
             }
         }
 
+        cc.globalAlpha = previousGlobalAlpha;
+
         cc.restore();
+    }
+
+    /**
+     * Determine the current opacity multiplier for drawing airspace polygons
+     *
+     * @for CanvasController
+     * @method _calculateAirspaceGlobalAlpha
+     * @returns {number}
+     * @private
+     */
+    _calculateAirspaceGlobalAlpha() {
+        const rawValue = parseFloat(GameController.game.option.getOptionByName(GAME_OPTION_NAMES.AIRSPACE_OPACITY));
+
+        if (Number.isNaN(rawValue)) {
+            return 1;
+        }
+
+        return clamp(rawValue, 0, 1);
     }
 
     /**
