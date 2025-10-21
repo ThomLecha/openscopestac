@@ -10,6 +10,7 @@ import { MEASURE_TOOL_STYLE } from './inputConstants';
  * @final
  */
 export const GAME_OPTION_NAMES = {
+    AIRSPACE_OPACITY: 'airspaceOpacity',
     CONTROL_METHOD: 'controlMethod',
     CHAT_LOG_DURATION: 'chatLogDuration',
     DRAW_PROJECTED_PATHS: 'drawProjectedPaths',
@@ -33,6 +34,32 @@ export const GAME_OPTION_NAMES = {
  * @final
  */
 export const GAME_OPTION_VALUES = [
+    {
+        name: GAME_OPTION_NAMES.AIRSPACE_OPACITY,
+        defaultValue: '1.0',
+        description: 'Airspace shading intensity',
+        help: 'Adjusts the opacity multiplier used when filling the controlled airspace polygons on the scope',
+        type: 'select',
+        onChangeEventHandler: EVENT.AIRSPACE_OPACITY_CHANGE,
+        optionList: [
+            {
+                displayLabel: '25%',
+                value: '0.25'
+            },
+            {
+                displayLabel: '50%',
+                value: '0.5'
+            },
+            {
+                displayLabel: '75%',
+                value: '0.75'
+            },
+            {
+                displayLabel: '100%',
+                value: '1.0'
+            }
+        ]
+    },
     {
         name: GAME_OPTION_NAMES.THEME,
         defaultValue: 'DEFAULT',
