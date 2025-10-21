@@ -40,23 +40,19 @@ export const GAME_OPTION_VALUES = [
         description: 'Airspace shading intensity',
         help: 'Adjusts the opacity multiplier used when filling the controlled airspace polygons on the scope',
         type: 'select',
-        onChangeEventHandler: null,
+        onChangeEventHandler: EVENT.AIRSPACE_OPACITY_CHANGE,
         optionList: [
             {
                 displayLabel: '25%',
                 value: '0.25'
             },
             {
-                displayLabel: '40%',
-                value: '0.4'
+                displayLabel: '50%',
+                value: '0.5'
             },
             {
-                displayLabel: '55%',
-                value: '0.55'
-            },
-            {
-                displayLabel: '70%',
-                value: '0.7'
+                displayLabel: '75%',
+                value: '0.75'
             },
             {
                 displayLabel: '100%',

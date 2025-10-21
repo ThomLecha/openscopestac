@@ -250,6 +250,7 @@ export default class CanvasController {
         this._onToggleTerrainHandler = this._onToggleTerrain.bind(this);
         this._onToggleVideoMapHandler = this._onToggleVideoMap.bind(this);
         this._onRangeRingsChangeHandler = this._onRangeRingsChange.bind(this);
+        this._onAirspaceOpacityChangeHandler = this._onAirspaceOpacityChange.bind(this);
         this._onResizeHandler = this.canvas_resize.bind(this);
 
         this._setThemeHandler = this._setTheme.bind(this);
@@ -277,6 +278,7 @@ export default class CanvasController {
         this._eventBus.on(EVENT.TOGGLE_TERRAIN, this._onToggleTerrainHandler);
         this._eventBus.on(EVENT.TOGGLE_VIDEO_MAP, this._onToggleVideoMapHandler);
         this._eventBus.on(EVENT.RANGE_RINGS_CHANGE, this._onRangeRingsChangeHandler);
+        this._eventBus.on(EVENT.AIRSPACE_OPACITY_CHANGE, this._onAirspaceOpacityChangeHandler);
         this._eventBus.on(EVENT.AIRPORT_CHANGE, this._onAirportChangeHandler);
         this._eventBus.on(EVENT.SET_THEME, this._setThemeHandler);
         window.addEventListener('resize', this._onResizeHandler);
@@ -305,6 +307,7 @@ export default class CanvasController {
         this._eventBus.off(EVENT.TOGGLE_TERRAIN, this._onToggleTerrain);
         this._eventBus.off(EVENT.TOGGLE_VIDEO_MAP, this._onToggleVideoMapHandler);
         this._eventBus.off(EVENT.RANGE_RINGS_CHANGE, this._onRangeRingsChangeHandler);
+        this._eventBus.off(EVENT.AIRSPACE_OPACITY_CHANGE, this._onAirspaceOpacityChangeHandler);
         this._eventBus.off(EVENT.AIRPORT_CHANGE, this._onAirportChangeHandler);
         this._eventBus.off(EVENT.SET_THEME, this._setTheme);
         window.removeEventListener('resize', this._onResizeHandler);
@@ -2692,6 +2695,18 @@ export default class CanvasController {
     _onToggleVideoMap(mapNames) {
         AirportController.airport_get().mapCollection.setVisibleMaps(mapNames);
 
+        this._markDeepRender();
+    }
+
+    /**
+     * Notify that the airspace opacity option has changed.
+     *
+     * @for CanvasController
+     * @method _onAirspaceOpacityChange
+     * @returns undefined
+     * @private
+     */
+    _onAirspaceOpacityChange() {
         this._markDeepRender();
     }
 
