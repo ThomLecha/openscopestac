@@ -276,7 +276,7 @@ export default class SettingsController {
         const simulatorVersion = window.GLOBAL.VERSION;
         const $container = $(UI_DIALOG_FOOTER_TEMPLATE);
 
-        $container.text(`openScope ATC Simulator v${simulatorVersion} <em>Forked by STAC</em>`);
+        $container.text(`openScope ATC Simulator v${simulatorVersion} Forked by STAC`);
 
         return $container;
     }
