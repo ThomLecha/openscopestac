@@ -43,16 +43,20 @@ export const GAME_OPTION_VALUES = [
         onChangeEventHandler: EVENT.AIRSPACE_OPACITY_CHANGE,
         optionList: [
             {
-                displayLabel: '25%',
-                value: '0.25'
+                displayLabel: '20%',
+                value: '0.2'
             },
             {
-                displayLabel: '50%',
-                value: '0.5'
+                displayLabel: '40%',
+                value: '0.4'
             },
             {
-                displayLabel: '75%',
-                value: '0.75'
+                displayLabel: '60%',
+                value: '0.6'
+            },
+            {
+                displayLabel: '80%',
+                value: '0.8'
             },
             {
                 displayLabel: '100%',

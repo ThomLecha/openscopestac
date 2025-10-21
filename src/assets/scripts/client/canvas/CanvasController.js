@@ -2292,7 +2292,33 @@ export default class CanvasController {
             return 1;
         }
 
-        return clamp(rawValue, 0, 1);
+        const airport = AirportController.airport_get();
+        const airspaceCount = Array.isArray(airport.airspace) ? airport.airspace.length : 0;
+
+        if (airspaceCount === 0) {
+            return clamp(rawValue, 0, 1);
+        }
+
+        const alphaBase = 0.2;
+        const opacityFactor = 1 - rawValue + 0.25;
+        const denominator = 2 * opacityFactor;
+        let desiredFinalOpacity = 0;
+
+        if (denominator !== 0) {
+            const numerator = 1 - Math.pow(1 - (alphaBase * opacityFactor), airspaceCount);
+
+            desiredFinalOpacity = numerator / denominator;
+        }
+
+        desiredFinalOpacity = clamp(desiredFinalOpacity, 0, 1);
+
+        if (desiredFinalOpacity === 0) {
+            return 0;
+        }
+
+        const perLayerAlpha = 1 - Math.pow(1 - desiredFinalOpacity, 1 / airspaceCount);
+
+        return clamp(perLayerAlpha, 0, 1);
     }
 
     /**
