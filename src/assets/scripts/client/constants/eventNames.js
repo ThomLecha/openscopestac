@@ -28,6 +28,13 @@ export const EVENT = {
 
     /**
      * @memberof EVENT
+     * @property AIRSPACE_OPACITY_CHANGE
+     * @type {string}
+     */
+    AIRSPACE_OPACITY_CHANGE: 'airspace-opacity-change',
+
+    /**
+     * @memberof EVENT
      * @property CHAT_LOG_DURATION_CHANGE
      * @type {string}
      */
