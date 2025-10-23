@@ -504,9 +504,9 @@
       "entryPoints": {
         "CAD": [["CAD", "A130"]]
       },
-      "body": [[ "SOTIP", "A130-" ], [ "ODILO", "A110|S280-" ], [ "VASOL", "A110" ], [ "PO615", "A110" ]],
+      "body": [[ "SOTIP", "A130-" ], [ "ODILO", "A110|S280-" ], [ "VASOL", "A110" ], [ "PO615", "A110|#050" ]],
       "rwy": {
-        "LFPO25": ["#083"]
+        "LFPO25": []
       },
       "draw": [
         ["CAD", "SOTIP", "ODILO", "VASOL", "PO615", "LFPO25"],
