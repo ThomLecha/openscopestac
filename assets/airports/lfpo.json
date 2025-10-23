@@ -451,7 +451,6 @@
       "rwy": {
           "LFPO24": ["PO243"]
       },
-      "body": [],
       "exitPoints": {
         "BATAG": [["PO300", "A100-"], "PO302", ["BATAG", "A80-"]]
       },
@@ -467,7 +466,6 @@
       "rwy": {
           "LFPO24": ["PO243"]
       },
-      "body": [],
       "exitPoints": {
         "PO262": ["PO245", "PO248", "PO260", ["PO262", "A80-"]]
       },
@@ -483,7 +481,6 @@
       "rwy": {
           "LFPO24": ["PO243"]
       },
-      "body": [],
       "exitPoints": {
         "ADADA": ["PO244", "PO246", "PO270", ["PO271", "A100-"], ["ADADA", "A80-"]]
       },
@@ -499,7 +496,6 @@
       "rwy": {
           "LFPO24": ["PO245"]
       },
-      "body": [],
       "exitPoints": {
         "PO191": ["PO248", "PO189", ["PO191", "A80-"]]
       },
