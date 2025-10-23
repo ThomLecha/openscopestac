@@ -499,68 +499,76 @@
     "AWYLGL": ["PO191", "LGL"],
     "AWYELCOB": ["PO191", "ELCOB"]
   },
-"sids": {
-  "EAST": {
-    "icao": "EAST",
-    "name": "Orly Est",
-    "altitude": 10000,
-    "rwy": { "LFPO24": ["PO243"] },
-    "exitPoints": {
-      "BATAG": ["PO300", "PO302", "BATAG"]
+  "sids": {
+    "EAST": {
+      "icao": "EAST",
+      "name": "Orly Est",
+      "rwy": {
+          "LFPO24": []
+      },
+      "body": ["PO243"],
+      "exitPoints": {
+        "BATAG": [["PO300", "A100-"], "PO302", ["BATAG", "A80-"]]
+      },
+      "draw": [
+        ["LFPO24", "PO243", "PO300", "PO302", "BATAG"],
+        ["EAST", "BATAG*"]
+      ]
     },
-    "draw": [
-      ["LFPO24", "PO243", "PO300", "PO302", "BATAG"],
-      ["EAST", "BATAG*"]
-    ]
+    "NORTH": {
+      "icao": "NORTH",
+      "name": "Orly Nord",
+      "rwy": {
+          "LFPO24": []
+      },
+      "body": ["PO243"],
+      "exitPoints": {
+        "PO262": ["PO245", "PO248", "PO260", ["PO262", "A80-"]]
+      },
+      "draw": [
+        ["LFPO24", "PO243", "PO245", "PO248", "PO260", "PO262"],
+        ["NORTH", "PO262*"]
+      ]
+    },
+    "SOUTH": {
+      "icao": "SOUTH",
+      "name": "Orly Sud",
+      "rwy": {
+          "LFPO24": []
+      },
+      "body": ["PO243"],
+      "exitPoints": {
+        "ADADA": ["PO244", "PO246", "PO270", ["PO271", "A100-"], ["ADADA", "A80-"]]
+      },
+      "draw": [
+        ["LFPO24", "PO243", "PO244", "PO246", "PO270", "PO271", "ADADA"],
+        ["SOUTH", "ADADA*"]
+      ]
+    },
+    "WEST": {
+      "icao": "WEST",
+      "name": "Orly Ouest",
+      "rwy": {
+          "LFPO24": []
+      },
+      "body": ["PO245"],
+      "exitPoints": {
+        "PO191": ["PO248", "PO189", ["PO191", "A80-"]]
+      },
+      "draw": [
+        ["LFPO24", "PO245", "PO248", "PO189", "PO191"],
+        ["WEST", "PO191*"]
+      ]
+    }
   },
-  "NORTH": {
-    "icao": "NORTH",
-    "name": "Orly Nord",
-    "altitude": 10000,
-    "rwy": { "LFPO24": ["PO243"] },
-    "exitPoints": {
-      "PO262": ["PO245", "PO248", "PO260", "PO262"]
-    },
-    "draw": [
-      ["LFPO24", "PO243", "PO245", "PO248", "PO260", "PO262"],
-      ["NORTH", "PO262*"]
-    ]
-  },
-  "SOUTH": {
-    "icao": "SOUTH",
-    "name": "Orly Sud",
-    "altitude": 10000,
-    "rwy": { "LFPO24": ["PO243"] },
-    "exitPoints": {
-      "ADADA": ["PO244", "PO246", "PO270", "PO271", "ADADA"]
-    },
-    "draw": [
-      ["LFPO24", "PO243", "PO244", "PO246", "PO270", "PO271", "ADADA"],
-      ["SOUTH", "ADADA*"]
-    ]
-  },
-  "WEST": {
-    "icao": "WEST",
-    "name": "Orly Ouest",
-    "altitude": 10000,
-    "rwy": { "LFPO24": ["PO245"] },
-    "exitPoints": {
-      "PO191": ["PO248", "PO189", "PO191"]
-    },
-    "draw": [
-      ["LFPO24", "PO245", "PO248", "PO189", "PO191"],
-      ["WEST", "PO191*"]
-    ]
-  }
-},
   "stars": {
     "CAD1": {
       "icao": "CAD1",
       "name": "Chateaudun Un",
       "entryPoints": {
-        "CAD": ["CAD"]
+        "CAD": [["CAD", "A130"]]
       },
-      "body": ["SOTIP", "ODILO", "VASOL", "PO615"],
+      "body": [["SOTIP", "A130-"], ["ODILO", "A110|S280-"], ["VASOL", "A110"], ["PO615", "A110"], "#083"],
       "rwy": {
         "LFPO25": []
       },
@@ -573,9 +581,9 @@
       "icao": "GITAN1",
       "name": "Gitan Un",
       "entryPoints": {
-        "GITAN": ["GITAN"]
+        "GITAN": [["GITAN", "A140|S280-"]]
       },
-      "body": ["GIMER", "VEBEK", "CTL", "VALPO"],
+      "body": ["GIMER", ["VEBEK", "A110|S250-"], "CTL", "VALPO", "#224"],
       "rwy": {
         "LFPO25": []
       },
@@ -588,9 +596,9 @@
       "icao": "OKRIX1",
       "name": "Okrix Un",
       "entryPoints": {
-        "OKRIX": ["OKRIX"]
+        "OKRIX": [["OKRIX", "A180-|S280-"]]
       },
-      "body": ["EBOMA", "MOLBA", "MLN", "PO610"],
+      "body": [["EBOMA", "A120-|S250-"], ["MOLBA", "A100|S250-"], "MLN", "PO610", "#035"],
       "rwy": {
         "LFPO25": []
       },
@@ -607,7 +615,10 @@
       "destination": "",
       "category": "departure",
       "route": "LFPO24.EAST.BATAG.AWYDIKOL.DIKOL",
-      "altitude": "",
+      "commands": {
+          "24": "c 80"
+      },
+      "altitude": [10000, 12000],
       "speed": "",
       "method": "random",
       "rate": 10,
@@ -622,7 +633,10 @@
       "destination": "",
       "category": "departure",
       "route": "LFPO24.NORTH.PO262.AWYBOV.BOV",
-      "altitude": "",
+      "commands": {
+          "24": "c 80"
+      },
+      "altitude": [10000, 12000],
       "speed": "",
       "method": "random",
       "rate": 10,
@@ -637,7 +651,10 @@
       "destination": "",
       "category": "departure",
       "route": "LFPO24.SOUTH.ADADA.AWYAGOPA.AGOPA",
-      "altitude": "",
+      "commands": {
+          "24": "c 80"
+      },
+      "altitude": [10000, 12000],
       "speed": "",
       "method": "random",
       "rate": 10,
@@ -652,7 +669,10 @@
       "destination": "",
       "category": "departure",
       "route": "LFPO24.WEST.PO191.AWYLGL.LGL",
-      "altitude": "",
+      "commands": {
+          "24": "c 80"
+      },
+      "altitude": [10000, 12000],
       "speed": "",
       "method": "random",
       "rate": 10,
@@ -667,8 +687,8 @@
       "destination": "LFPO",
       "category": "arrival",
       "route": "LUMAN.AWYLUMAN.CAD.CAD1.LFPO25",
-      "altitude": "11000",
-      "speed": 280,
+      "altitude": [12000, 14000],
+      "speed": [260, 280],
       "method": "random",
       "rate": 10,
       "airlines": [
@@ -682,8 +702,8 @@
       "destination": "LFPO",
       "category": "arrival",
       "route": "MATIX.AWYMATIX.GITAN.GITAN1.LFPO25",
-      "altitude": "12000",
-      "speed": 300,
+      "altitude": [13000, 15000],
+      "speed": [260, 280],
       "method": "random",
       "rate": 10,
       "airlines": [
@@ -697,8 +717,8 @@
       "destination": "LFPO",
       "category": "arrival",
       "route": "TUNOR.AWYTUNOR.OKRIX.OKRIX1.LFPO25",
-      "altitude": "10000",
-      "speed": 310,
+      "altitude": [16000, 18000],
+      "speed": [260, 280],
       "method": "random",
       "rate": 10,
       "airlines": [
