@@ -448,9 +448,12 @@
       "icao": "EAST",
       "name": "Orly Est",
       "altitude": 10000,
-      "rwy": { "LFPO24": ["PO243"] },
+      "rwy": {
+          "LFPO24": []
+      },
+      "body": ["PO243"],
       "exitPoints": {
-        "BATAG": [[ "PO300", "A100-" ], "PO302", [ "BATAG", "A80-" ]]
+        "BATAG": [["PO300", "A100-"], "PO302", ["BATAG", "A80-"]]
       },
       "draw": [
         ["LFPO24", "PO243", "PO300", "PO302", "BATAG"],
@@ -461,7 +464,10 @@
       "icao": "NORTH",
       "name": "Orly Nord",
       "altitude": 10000,
-      "rwy": { "LFPO24": ["PO243"] },
+      "rwy": {
+          "LFPO24": []
+      },
+      "body": ["PO243"],
       "exitPoints": {
         "PO262": ["PO245", "PO248", "PO260", ["PO262", "A80-"]]
       },
@@ -474,7 +480,10 @@
       "icao": "SOUTH",
       "name": "Orly Sud",
       "altitude": 10000,
-      "rwy": { "LFPO24": ["PO243"] },
+      "rwy": {
+          "LFPO24": []
+      },
+      "body": ["PO243"],
       "exitPoints": {
         "ADADA": ["PO244", "PO246", "PO270", ["PO271", "A100-"], ["ADADA", "A80-"]]
       },
@@ -487,7 +496,10 @@
       "icao": "WEST",
       "name": "Orly Ouest",
       "altitude": 10000,
-      "rwy": { "LFPO24": ["PO245"] },
+      "rwy": {
+          "LFPO24": []
+      },
+      "body": ["PO245"],
       "exitPoints": {
         "PO191": ["PO248", "PO189", ["PO191", "A80-"]]
       },
@@ -534,7 +546,7 @@
       "entryPoints": {
         "OKRIX": [["OKRIX", "A180-|S280-"]]
       },
-      "body": [[ "EBOMA", "A120-|S250-" ], [ "MOLBA", "A100|S250-" ], "MLN", "PO610", "#035"],
+      "body": [["EBOMA", "A120-|S250-"], ["MOLBA", "A100|S250-"], "MLN", "PO610", "#035"],
       "rwy": {
         "LFPO25": []
       },
