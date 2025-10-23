@@ -564,7 +564,7 @@
       "category": "departure",
       "route": "LFPO24.EAST.BATAG.AWYDIKOL.DIKOL",
       "commands": {
-          "LFPO24": "c 80"
+          "24": "c 80"
       },
       "altitude": [10000, 12000],
       "speed": "",
@@ -582,7 +582,7 @@
       "category": "departure",
       "route": "LFPO24.NORTH.PO262.AWYBOV.BOV",
       "commands": {
-          "LFPO24": "c 80"
+          "24": "c 80"
       },
       "altitude": [10000, 12000],
       "speed": "",
@@ -600,7 +600,7 @@
       "category": "departure",
       "route": "LFPO24.SOUTH.ADADA.AWYAGOPA.AGOPA",
       "commands": {
-          "LFPO24": "c 80"
+          "24": "c 80"
       },
       "altitude": [10000, 12000],
       "speed": "",
@@ -618,7 +618,7 @@
       "category": "departure",
       "route": "LFPO24.WEST.PO191.AWYLGL.LGL",
       "commands": {
-          "LFPO24": "c 80"
+          "24": "c 80"
       },
       "altitude": [10000, 12000],
       "speed": "",
