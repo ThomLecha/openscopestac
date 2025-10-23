@@ -504,7 +504,7 @@
       "entryPoints": {
         "CAD": [["CAD", "A130"]]
       },
-      "body": [["SOTIP", "A130-"], ["ODILO", "A110|S280-"], ["VASOL", "A110"], ["PO615", "A110"], "#050"],
+      "body": [["SOTIP", "A130-"], ["ODILO", "A110|S280-"], ["VASOL", "A110"], ["PO615", "A110"], "#083"],
       "rwy": {
         "LFPO25": []
       },
@@ -519,9 +519,9 @@
       "entryPoints": {
         "GITAN": [["GITAN", "A140|S280-"]]
       },
-      "body": ["GIMER", ["VEBEK", "A110|S250-"], "CTL", "VALPO"],
+      "body": ["GIMER", ["VEBEK", "A110|S250-"], "CTL", "VALPO", "#224"],
       "rwy": {
-        "LFPO25": ["#224"]
+        "LFPO25": []
       },
       "draw": [
         ["GITAN", "GIMER", "VEBEK", "CTL", "VALPO", "LFPO25"],
@@ -534,9 +534,9 @@
       "entryPoints": {
         "OKRIX": [["OKRIX", "A180-|S280-"]]
       },
-      "body": [[ "EBOMA", "A120-|S250-" ], [ "MOLBA", "A100|S250-" ], "MLN", "PO610"],
+      "body": [[ "EBOMA", "A120-|S250-" ], [ "MOLBA", "A100|S250-" ], "MLN", "PO610", "#035"],
       "rwy": {
-        "LFPO25": ["#035"]
+        "LFPO25": []
       },
       "draw": [
         ["OKRIX", "EBOMA", "MOLBA", "MLN", "PO610", "LFPO25"],
