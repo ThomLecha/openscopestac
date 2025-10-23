@@ -447,7 +447,7 @@
     "EAST": {
       "icao": "EAST",
       "name": "Orly Est",
-      "altitude": 10000,
+      "altitude": [10000, 12000],
       "rwy": {
           "LFPO24": []
       },
@@ -463,7 +463,7 @@
     "NORTH": {
       "icao": "NORTH",
       "name": "Orly Nord",
-      "altitude": 10000,
+      "altitude": [10000, 12000],
       "rwy": {
           "LFPO24": []
       },
@@ -479,7 +479,7 @@
     "SOUTH": {
       "icao": "SOUTH",
       "name": "Orly Sud",
-      "altitude": 10000,
+      "altitude": [10000, 12000],
       "rwy": {
           "LFPO24": []
       },
@@ -495,7 +495,7 @@
     "WEST": {
       "icao": "WEST",
       "name": "Orly Ouest",
-      "altitude": 10000,
+      "altitude": [10000, 12000],
       "rwy": {
           "LFPO24": []
       },
@@ -563,7 +563,10 @@
       "destination": "",
       "category": "departure",
       "route": "LFPO24.EAST.BATAG.AWYDIKOL.DIKOL",
-      "altitude": [6000, 8000],
+      "commands": {
+          "LFPO24": "c 80"
+      },
+      "altitude": [10000, 12000],
       "speed": "",
       "method": "random",
       "rate": 10,
@@ -578,7 +581,10 @@
       "destination": "",
       "category": "departure",
       "route": "LFPO24.NORTH.PO262.AWYBOV.BOV",
-      "altitude": [6000, 8000],
+      "commands": {
+          "LFPO24": "c 80"
+      },
+      "altitude": [10000, 12000],
       "speed": "",
       "method": "random",
       "rate": 10,
@@ -593,7 +599,10 @@
       "destination": "",
       "category": "departure",
       "route": "LFPO24.SOUTH.ADADA.AWYAGOPA.AGOPA",
-      "altitude": [6000, 8000],
+      "commands": {
+          "LFPO24": "c 80"
+      },
+      "altitude": [10000, 12000],
       "speed": "",
       "method": "random",
       "rate": 10,
@@ -608,7 +617,10 @@
       "destination": "",
       "category": "departure",
       "route": "LFPO24.WEST.PO191.AWYLGL.LGL",
-      "altitude": [6000, 8000],
+      "commands": {
+          "LFPO24": "c 80"
+      },
+      "altitude": [10000, 12000],
       "speed": "",
       "method": "random",
       "rate": 10,
@@ -623,7 +635,7 @@
       "destination": "LFPO",
       "category": "arrival",
       "route": "LUMAN.AWYLUMAN.CAD.CAD1.LFPO25",
-      "altitude": [11000, 13000],
+      "altitude": [12000, 14000],
       "speed": [260, 280],
       "method": "random",
       "rate": 10,
@@ -638,7 +650,7 @@
       "destination": "LFPO",
       "category": "arrival",
       "route": "MATIX.AWYMATIX.GITAN.GITAN1.LFPO25",
-      "altitude": [12000, 14000],
+      "altitude": [13000, 15000],
       "speed": [260, 280],
       "method": "random",
       "rate": 10,
