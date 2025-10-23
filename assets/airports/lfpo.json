@@ -447,7 +447,6 @@
     "EAST": {
       "icao": "EAST",
       "name": "Orly Est",
-      "altitude": [10000, 12000],
       "rwy": {
           "LFPO24": []
       },
@@ -463,7 +462,6 @@
     "NORTH": {
       "icao": "NORTH",
       "name": "Orly Nord",
-      "altitude": [10000, 12000],
       "rwy": {
           "LFPO24": []
       },
@@ -479,7 +477,6 @@
     "SOUTH": {
       "icao": "SOUTH",
       "name": "Orly Sud",
-      "altitude": [10000, 12000],
       "rwy": {
           "LFPO24": []
       },
@@ -495,7 +492,6 @@
     "WEST": {
       "icao": "WEST",
       "name": "Orly Ouest",
-      "altitude": [10000, 12000],
       "rwy": {
           "LFPO24": []
       },
