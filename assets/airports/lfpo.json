@@ -18,7 +18,7 @@
   },
   "has_terrain": false,
   "wind": {
-      "angle": 110,
+      "angle": 220,
       "speed": 8
   },
   "arrivalRunway": "25",
