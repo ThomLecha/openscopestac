@@ -688,7 +688,7 @@
       "category": "arrival",
       "route": "LUMAN.AWYLUMAN.CAD.CAD1.LFPO25",
       "altitude": [12000, 14000],
-      "speed": [260, 280],
+      "speed": 270,
       "method": "random",
       "rate": 10,
       "airlines": [
@@ -703,7 +703,7 @@
       "category": "arrival",
       "route": "MATIX.AWYMATIX.GITAN.GITAN1.LFPO25",
       "altitude": [13000, 15000],
-      "speed": [260, 280],
+      "speed": 270,
       "method": "random",
       "rate": 10,
       "airlines": [
@@ -718,7 +718,7 @@
       "category": "arrival",
       "route": "TUNOR.AWYTUNOR.OKRIX.OKRIX1.LFPO25",
       "altitude": [16000, 18000],
-      "speed": [260, 280],
+      "speed": 270,
       "method": "random",
       "rate": 10,
       "airlines": [
