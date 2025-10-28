@@ -613,6 +613,9 @@
     "EMMAQ1": {
       "icao": "EMMAQ1",
       "name": "Emmaq Un",
+      "commands": {
+        "VEKUH": "ils 25"
+      },
       "entryPoints": {
         "EMMAQ": [["EMMAQ", "A100|S200-"]]
       },

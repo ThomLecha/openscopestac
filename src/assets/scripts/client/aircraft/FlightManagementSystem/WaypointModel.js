@@ -1,5 +1,6 @@
 import _isArray from 'lodash/isArray';
 import _isEmpty from 'lodash/isEmpty';
+import _isNil from 'lodash/isNil';
 import _isNumber from 'lodash/isNumber';
 import FixCollection from '../../navigationLibrary/FixCollection';
 import {
@@ -48,6 +49,7 @@ export default class WaypointModel {
         this._isVectorWaypoint = false;
         this._name = '';
         this._positionModel = null;
+        this._autoCommand = null;
 
         this.init(data);
     }
@@ -127,6 +129,17 @@ export default class WaypointModel {
      */
     get hasSpeedRestriction() {
         return this.hasSpeedMaximumRestriction || this.hasSpeedMinimumRestriction;
+    }
+
+    /**
+     * Indique si une commande automatique est associée à ce point
+     *
+     * @for WaypointModel
+     * @property hasAutoCommand
+     * @type {boolean}
+     */
+    get hasAutoCommand() {
+        return !_isNil(this._autoCommand) && this._autoCommand !== '';
     }
 
     /**
@@ -292,6 +305,7 @@ export default class WaypointModel {
         this._isVectorWaypoint = false;
         this._name = '';
         this._positionModel = null;
+        this._autoCommand = null;
 
         return this;
     }
@@ -355,6 +369,32 @@ export default class WaypointModel {
     }
 
     // ------------------------------ PUBLIC ------------------------------
+
+    /**
+     * Associe une commande automatique à ce point de navigation
+     *
+     * @for WaypointModel
+     * @method setAutoCommand
+     * @param command {string}
+     */
+    setAutoCommand(command) {
+        this._autoCommand = command;
+    }
+
+    /**
+     * Récupère et efface la commande automatique programmée sur ce point
+     *
+     * @for WaypointModel
+     * @method consumeAutoCommand
+     * @return {string|null}
+     */
+    consumeAutoCommand() {
+        const command = this._autoCommand;
+
+        this._autoCommand = null;
+
+        return command;
+    }
 
     /**
      * Mark this waypoint as a hold waypoint
