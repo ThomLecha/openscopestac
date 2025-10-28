@@ -471,6 +471,9 @@ export default class ProcedureModel {
         }
 
         if (waypoint.name in this._commands && this._commands[waypoint.name]) {
+            // Journalise l'attachement d'une commande automatique pour faciliter le diagnostic
+            console.debug(`[PROC:${this._icao}] commande auto «${this._commands[waypoint.name]}» attachée à ${waypoint.name}`);
+
             waypoint.setAutoCommand(this._commands[waypoint.name]);
         }
 
