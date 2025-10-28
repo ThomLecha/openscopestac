@@ -620,7 +620,7 @@
       "entryPoints": {
         "EMMAQ": [["EMMAQ", "A50|S200-"]]
       },
-      "body": [["MEDWY", "A40|S200-"], ["VEKUH", "A30|S180-"], ["_VEKUH2"]],
+      "body": [["MEDWY", "A40|S200-"], ["VEKUH", "A30|S180-"], "_VEKUH2"],
       "rwy": {
         "LFPP25": []
       },
