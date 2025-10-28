@@ -614,9 +614,9 @@
       "icao": "EMMAQ1",
       "name": "Emmaq Un",
       "entryPoints": {
-        "EMMAQ": [["EMMAQ", ""]]
+        "EMMAQ": [["EMMAQ", "A100|S200-"]]
       },
-      "body": [["MEDWY", ""], ["VEKUH", ""]],
+      "body": [["MEDWY", "A100|S200-"], ["VEKUH", "A100|S200-"]],
       "rwy": {
         "LFPO25": []
       },
