@@ -115,6 +115,8 @@ export default class AircraftCommander {
         }
 
         if (isPreSpawn) {
+            console.debug('[AUTO-CMD] exécution silencieuse', { response, redResponse, response_end });
+
             return true;
         }
 

@@ -48,6 +48,16 @@ export default class ProcedureModel {
         this._body = [];
 
         /**
+         * Liste des commandes automatiques associées aux points de la procédure
+         *
+         * @property _commands
+         * @type {object<string, string>}
+         * @default {}
+         * @private
+         */
+        this._commands = {};
+
+        /**
          * 2D array describing the lines needed to be drawn between fixes in order
          * to properly depict the procedure's path on the scope
          *
@@ -218,6 +228,7 @@ export default class ProcedureModel {
         this._icao = data.icao;
         this._name = data.name;
         this._altitude = data.altitude;
+        this._commands = data.commands || {};
         this._procedureType = procedureType;
 
         if (this._procedureType === PROCEDURE_TYPE.SID) {
@@ -246,6 +257,7 @@ export default class ProcedureModel {
         this._name = '';
         this._procedureType = '';
         this._altitude = null;
+        this._commands = {};
 
         return this;
     }
@@ -456,6 +468,13 @@ export default class ProcedureModel {
 
         if (holdParameters != null) {
             waypoint.setDefaultHoldParameters(holdParameters);
+        }
+
+        if (waypoint.name in this._commands && this._commands[waypoint.name]) {
+            // Journalise l'attachement d'une commande automatique pour faciliter le diagnostic
+            console.debug(`[PROC:${this._icao}] commande auto «${this._commands[waypoint.name]}» attachée à ${waypoint.name}`);
+
+            waypoint.setAutoCommand(this._commands[waypoint.name]);
         }
 
         return waypoint;

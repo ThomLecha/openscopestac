@@ -291,7 +291,8 @@
     "ELCOB": ["N49.0317", "E1.2209"],
     "EMMAQ": ["N48.6914", "E2.8197"],
     "MEDWY": ["N48.7614", "E2.8196"],
-    "VEKUH": ["N48.7896", "E2.7424"]
+    "VEKUH": ["N48.7896", "E2.7424"],
+    "VEKUH2": ["N48.7750", "E2.6500"]
   },
   "restricted": [
     {
@@ -613,15 +614,18 @@
     "EMMAQ1": {
       "icao": "EMMAQ1",
       "name": "Emmaq Un",
+      "commands": {
+        "VEKUH": "ils 25"
+      },
       "entryPoints": {
         "EMMAQ": [["EMMAQ", "A100|S200-"]]
       },
-      "body": [["MEDWY", "A100|S200-"], ["VEKUH", "A100|S200-"]],
+      "body": [["MEDWY", "A100|S200-"], ["VEKUH", "A100|S200-"], ["VEKUH2", "A100|S200-"]],
       "rwy": {
         "LFPP25": []
       },
       "draw": [
-        ["EMMAQ", "MEDWY", "VEKUH", "LFPP25"],
+        ["EMMAQ", "MEDWY", "VEKUH", "VEKUH2", "LFPP25"],
         ["EMMAQ1", "EMMAQ*"]
       ]
     }

@@ -15,6 +15,7 @@ import ModeController from './ModeControl/ModeController';
 import Pilot from './Pilot/Pilot';
 import TimeKeeper from '../engine/TimeKeeper';
 import UiController from '../ui/UiController';
+import CommandParser from '../commands/parsers/CommandParser';
 import EventBus from '../lib/EventBus';
 import { AIRCRAFT_EVENT } from '../constants/eventNames';
 import {
@@ -1884,6 +1885,43 @@ export default class AircraftModel {
     }
 
     /**
+     * Exécute, si nécessaire, la commande automatique attachée au point franchi
+     *
+     * @for AircraftModel
+     * @method _executeWaypointCommandIfAvailable
+     * @param waypoint {WaypointModel}
+     * @private
+     */
+    _executeWaypointCommandIfAvailable(waypoint) {
+        if (_isNil(waypoint) || !waypoint.hasAutoCommand) {
+            return;
+        }
+
+        const commandString = waypoint.consumeAutoCommand();
+
+        if (_isNil(commandString) || commandString === '') {
+            return;
+        }
+
+        console.debug(`[AUTO-CMD] ${this.callsign} franchit ${waypoint.name}, tentative d'exécution de «${commandString}»`);
+
+        if (typeof window === 'undefined' || _isNil(window.aircraftController) || _isNil(window.aircraftController.aircraftCommander)) {
+            return;
+        }
+
+        try {
+            const parser = new CommandParser(`${this.callsign} ${commandString}`.trim());
+            const parsedCommand = parser.parse();
+
+            const result = window.aircraftController.aircraftCommander.runCommands(this, parsedCommand.args, true);
+
+            console.debug(`[AUTO-CMD] ${this.callsign} résultat runCommands`, result);
+        } catch (error) {
+            console.error(`Impossible d'exécuter la commande automatique '${commandString}' pour ${this.callsign}`, error);
+        }
+    }
+
+    /**
      * This will update the FIX for the aircraft and will change the aircraft's heading
      *
      * @for AircraftModel
@@ -1916,7 +1954,21 @@ export default class AircraftModel {
             shouldMoveToNextFix = closeToBeingOverFix || shouldFlyByFix;
         }
 
+        console.debug('[LNAV]', this.callsign, {
+            waypoint: this.fms.currentWaypoint.name,
+            distance_nm: distanceToWaypoint.toFixed(2),
+            turnInitiation_nm: turnInitiationDistance.toFixed(2),
+            closeToBeingOverFix,
+            closeEnoughToFlyByFix,
+            shouldFlyByFix,
+            shouldMoveToNextFix
+        });
+
         if (shouldMoveToNextFix) {
+            const waypointJustPassed = this.fms.currentWaypoint;
+
+            this._executeWaypointCommandIfAvailable(waypointJustPassed);
+
             if (!this.fms.hasNextWaypoint()) {
                 // we've hit this block because and aircraft is about to fly over the last waypoint in its flightPlan
                 this.pilot.maintainPresentHeading(this);
