@@ -1082,3 +1082,21 @@ ava('._initializePosition() sets #_positionModel to the position corresponding w
     t.true(typeof result === 'undefined');
     t.deepEqual(resultingGpsCoordinates, expectedGpsCoordinates);
 });
+
+ava('.setProcedureCommand() enregistre une commande valide', (t) => {
+    const waypointModel = new WaypointModel('BOACH');
+
+    waypointModel.setProcedureCommand('ils 07r');
+
+    t.true(waypointModel.hasProcedureCommand);
+    t.is(waypointModel.procedureCommand, 'ils 07r');
+});
+
+ava('.setProcedureCommand() ignore les commandes vides', (t) => {
+    const waypointModel = new WaypointModel('BOACH');
+
+    waypointModel.setProcedureCommand('   ');
+
+    t.false(waypointModel.hasProcedureCommand);
+    t.is(waypointModel.procedureCommand, null);
+});

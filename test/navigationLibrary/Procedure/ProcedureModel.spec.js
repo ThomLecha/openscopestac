@@ -164,6 +164,20 @@ ava('.getWaypointModelsForEntryAndExit() returns correct waypoints when specifie
     t.deepEqual(resultingWaypointNames, expectedWaypointNames);
 });
 
+ava('.getWaypointModelsForEntryAndExit() associe les commandes automatiques définies', (t) => {
+    const procedureData = Object.assign({}, STAR_MOCK.KEPEC1, {
+        commands: {
+            IPUMY: 'ils 07r'
+        }
+    });
+    const model = new ProcedureModel(PROCEDURE_TYPE.STAR, procedureData);
+    const result = model.getWaypointModelsForEntryAndExit('DAG', 'KLAS07R');
+    const waypointWithCommand = result.find((waypointModel) => waypointModel.name === 'IPUMY');
+
+    t.true(waypointWithCommand.hasProcedureCommand);
+    t.is(waypointWithCommand.procedureCommand, 'ils 07r');
+});
+
 ava('.hasEntry() returns false when the specified entry is not valid for the procedure', (t) => {
     const model = new ProcedureModel(PROCEDURE_TYPE.SID, SID_MOCK.BOACH6);
     const result = model.hasEntry(invalidEntryMock);

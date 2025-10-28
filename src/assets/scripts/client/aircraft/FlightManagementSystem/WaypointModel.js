@@ -48,6 +48,7 @@ export default class WaypointModel {
         this._isVectorWaypoint = false;
         this._name = '';
         this._positionModel = null;
+        this._procedureCommand = null;
 
         this.init(data);
     }
@@ -94,6 +95,17 @@ export default class WaypointModel {
      */
     get hasRestriction() {
         return this.hasAltitudeRestriction || this.hasSpeedRestriction;
+    }
+
+    /**
+     * Indique si une commande automatique est disponible pour ce point
+     *
+     * @for WaypointModel
+     * @property hasProcedureCommand
+     * @type {boolean}
+     */
+    get hasProcedureCommand() {
+        return typeof this._procedureCommand === 'string' && this._procedureCommand.length > 0;
     }
 
     /**
@@ -145,6 +157,17 @@ export default class WaypointModel {
         }
 
         return this._holdParameters;
+    }
+
+    /**
+     * Retourne la commande automatique associée au point
+     *
+     * @for WaypointModel
+     * @property procedureCommand
+     * @type {string|null}
+     */
+    get procedureCommand() {
+        return this._procedureCommand;
     }
 
     /**
@@ -631,6 +654,27 @@ export default class WaypointModel {
         // (eg. timer) to be passed onto _defaultHoldParameters
         this._defaultHoldParameters = Object.assign({}, DEFAULT_HOLD_PARAMETERS, holdParameters);
         this._holdParameters = Object.assign({}, DEFAULT_HOLD_PARAMETERS, holdParameters);
+    }
+
+    /**
+     * Enregistre une commande automatique pour ce point
+     *
+     * @for WaypointModel
+     * @method setProcedureCommand
+     * @param command {string}
+     */
+    setProcedureCommand(command) {
+        if (typeof command !== 'string') {
+            return;
+        }
+
+        const trimmedCommand = command.trim();
+
+        if (trimmedCommand.length === 0) {
+            return;
+        }
+
+        this._procedureCommand = trimmedCommand;
     }
 
     /**

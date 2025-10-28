@@ -17,6 +17,7 @@ import TimeKeeper from '../engine/TimeKeeper';
 import UiController from '../ui/UiController';
 import EventBus from '../lib/EventBus';
 import { AIRCRAFT_EVENT } from '../constants/eventNames';
+import CommandParser from '../commands/parsers/CommandParser';
 import {
     radians_normalize,
     angle_offset
@@ -1917,14 +1918,18 @@ export default class AircraftModel {
         }
 
         if (shouldMoveToNextFix) {
+            const waypointJustPassed = this.fms.currentWaypoint;
+
             if (!this.fms.hasNextWaypoint()) {
-                // we've hit this block because and aircraft is about to fly over the last waypoint in its flightPlan
+                // l'avion quitte le dernier point prévu : on applique la commande puis on stabilise la trajectoire
+                this._runWaypointCommandIfAvailable(waypointJustPassed);
                 this.pilot.maintainPresentHeading(this);
 
                 return this.groundTrack;
             }
 
             this.fms.moveToNextWaypoint();
+            this._runWaypointCommandIfAvailable(waypointJustPassed);
 
             const { currentWaypoint } = this.fms;
 
@@ -2008,6 +2013,34 @@ export default class AircraftModel {
         this.target.turn = holdParameters.turnDirection;
 
         return nextTargetHeading;
+    }
+
+    /**
+     * Applique une commande automatique liée au point survolé
+     *
+     * @for AircraftModel
+     * @method _runWaypointCommandIfAvailable
+     * @param waypointModel {WaypointModel}
+     * @private
+     */
+    _runWaypointCommandIfAvailable(waypointModel) {
+        if (_isNil(waypointModel) || !waypointModel.hasProcedureCommand) {
+            return;
+        }
+
+        if (typeof window === 'undefined') {
+            return;
+        }
+
+        const aircraftCommander = _get(window, 'aircraftController.aircraftCommander');
+
+        if (_isNil(aircraftCommander)) {
+            return;
+        }
+
+        const parsedCommand = new CommandParser(`${this.getCallsign()} ${waypointModel.procedureCommand}`).parse();
+
+        aircraftCommander.runCommands(this, parsedCommand.args, true);
     }
 
     /**

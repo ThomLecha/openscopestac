@@ -409,6 +409,9 @@ export const AIRPORT_JSON_KLAS_MOCK = {
         "KEPEC3": {
             "icao": "KEPEC3",
             "name": "Kepec Three",
+            "commands": {
+                "PRINO": "ils 07r"
+            },
             "entryPoints": {
                 "DAG": ["DAG", ["MISEN", "A240"]],
                 "TNP": ["TNP", "JOTNU", ["ZELMA", "A310-"]]

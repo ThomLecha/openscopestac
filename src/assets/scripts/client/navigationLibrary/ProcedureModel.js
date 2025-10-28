@@ -123,6 +123,16 @@ export default class ProcedureModel {
         this._name = '';
 
         /**
+         * Commandes automatiques à exécuter au survol de certains points
+         *
+         * @property _commands
+         * @type {object}
+         * @default {}
+         * @private
+         */
+        this._commands = {};
+
+        /**
          * The type of instrument procedure (must be one of `PROCEDURE_TYPE`)
          *
          * @property _procedureType
@@ -219,6 +229,19 @@ export default class ProcedureModel {
         this._name = data.name;
         this._altitude = data.altitude;
         this._procedureType = procedureType;
+        this._commands = {};
+
+        if (!_isNil(data.commands)) {
+            _forEach(data.commands, (command, fixName) => {
+                if (_isNil(command) || _isNil(fixName)) {
+                    return;
+                }
+
+                const normalizedFixName = fixName.toUpperCase();
+
+                this._commands[normalizedFixName] = command;
+            });
+        }
 
         if (this._procedureType === PROCEDURE_TYPE.SID) {
             return this._initEntriesAndExitsForSid(data);
@@ -246,6 +269,7 @@ export default class ProcedureModel {
         this._name = '';
         this._procedureType = '';
         this._altitude = null;
+        this._commands = {};
 
         return this;
     }
@@ -456,6 +480,12 @@ export default class ProcedureModel {
 
         if (holdParameters != null) {
             waypoint.setDefaultHoldParameters(holdParameters);
+        }
+
+        const commandForWaypoint = this._commands[waypoint.name];
+
+        if (!_isNil(commandForWaypoint)) {
+            waypoint.setProcedureCommand(commandForWaypoint);
         }
 
         return waypoint;

@@ -4,6 +4,8 @@ import AircraftModel from '../../src/assets/scripts/client/aircraft/AircraftMode
 import AirportController from '../../src/assets/scripts/client/airport/AirportController';
 import NavigationLibrary from '../../src/assets/scripts/client/navigationLibrary/NavigationLibrary';
 import TimeKeeper from '../../src/assets/scripts/client/engine/TimeKeeper';
+import WaypointModel from '../../src/assets/scripts/client/aircraft/FlightManagementSystem/WaypointModel';
+import CommandParser from '../../src/assets/scripts/client/commands/parsers/CommandParser';
 import {
     createAirportControllerFixture,
     resetAirportControllerFixture,
@@ -893,4 +895,35 @@ ava('._updateTargetedDirectionality() sets target ground track with value from .
     t.true(model._targetGroundTrack === groundTrackMock);
     t.true(model._targetHeading === null);
     sinon.restore();
+});
+
+ava('._runWaypointCommandIfAvailable() déclenche la commande sans journal radio', (t) => {
+    const model = new AircraftModel(ARRIVAL_AIRCRAFT_INIT_PROPS_MOCK);
+    const waypointModel = new WaypointModel('IPUMY');
+    const previousWindow = global.window;
+    const commandArgs = [['ils', '07r']];
+
+    waypointModel.setProcedureCommand('ils 07r');
+
+    const parseStub = sandbox.stub(CommandParser.prototype, 'parse').returns({ args: commandArgs });
+    const runCommandsStub = sandbox.stub().returns(true);
+
+    global.window = {
+        aircraftController: {
+            aircraftCommander: {
+                runCommands: runCommandsStub
+            }
+        }
+    };
+
+    model._runWaypointCommandIfAvailable(waypointModel);
+
+    t.true(parseStub.calledOnce);
+    t.true(runCommandsStub.calledWithExactly(model, commandArgs, true));
+
+    if (previousWindow === undefined) {
+        delete global.window;
+    } else {
+        global.window = previousWindow;
+    }
 });
