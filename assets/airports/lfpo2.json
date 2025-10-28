@@ -4,7 +4,7 @@
     "app": "Orly Approach",
     "dep": "Orly Departure"
   },
-  "icao": "LFPO2",
+  "icao": "LFPP",
   "iata": "ORY",
   "magnetic_north": 1.0,
   "ctr_radius": 100,
@@ -507,14 +507,14 @@
       "icao": "EAST",
       "name": "Orly Est",
       "rwy": {
-          "LFPO24": []
+          "LFPP24": []
       },
       "body": ["PO243"],
       "exitPoints": {
         "BATAG": [["PO300", "A100-"], "PO302", ["BATAG", "A80-"]]
       },
       "draw": [
-        ["LFPO24", "PO243", "PO300", "PO302", "BATAG"],
+        ["LFPP24", "PO243", "PO300", "PO302", "BATAG"],
         ["EAST", "BATAG*"]
       ]
     },
@@ -522,14 +522,14 @@
       "icao": "NORTH",
       "name": "Orly Nord",
       "rwy": {
-          "LFPO24": []
+          "LFPP24": []
       },
       "body": ["PO243"],
       "exitPoints": {
         "PO262": ["PO245", "PO248", "PO260", ["PO262", "A80-"]]
       },
       "draw": [
-        ["LFPO24", "PO243", "PO245", "PO248", "PO260", "PO262"],
+        ["LFPP24", "PO243", "PO245", "PO248", "PO260", "PO262"],
         ["NORTH", "PO262*"]
       ]
     },
@@ -537,14 +537,14 @@
       "icao": "SOUTH",
       "name": "Orly Sud",
       "rwy": {
-          "LFPO24": []
+          "LFPP24": []
       },
       "body": ["PO243"],
       "exitPoints": {
         "ADADA": ["PO244", "PO246", "PO270", ["PO271", "A100-"], ["ADADA", "A80-"]]
       },
       "draw": [
-        ["LFPO24", "PO243", "PO244", "PO246", "PO270", "PO271", "ADADA"],
+        ["LFPP24", "PO243", "PO244", "PO246", "PO270", "PO271", "ADADA"],
         ["SOUTH", "ADADA*"]
       ]
     },
@@ -552,14 +552,14 @@
       "icao": "WEST",
       "name": "Orly Ouest",
       "rwy": {
-          "LFPO24": []
+          "LFPP24": []
       },
       "body": ["PO245"],
       "exitPoints": {
         "PO191": ["PO248", "PO189", ["PO191", "A80-"]]
       },
       "draw": [
-        ["LFPO24", "PO245", "PO248", "PO189", "PO191"],
+        ["LFPP24", "PO245", "PO248", "PO189", "PO191"],
         ["WEST", "PO191*"]
       ]
     }
@@ -573,10 +573,10 @@
       },
       "body": [["SOTIP", "A130-"], ["ODILO", "A110|S280-"], ["VASOL", "A110"], ["PO615", "A110"], "#083"],
       "rwy": {
-        "LFPO25": []
+        "LFPP25": []
       },
       "draw": [
-        ["CAD", "SOTIP", "ODILO", "VASOL", "PO615", "LFPO25"],
+        ["CAD", "SOTIP", "ODILO", "VASOL", "PO615", "LFPP25"],
         ["CAD1", "CAD*"]
       ]
     },
@@ -588,10 +588,10 @@
       },
       "body": ["GIMER", ["VEBEK", "A110|S250-"], "CTL", "VALPO", "#224"],
       "rwy": {
-        "LFPO25": []
+        "LFPP25": []
       },
       "draw": [
-        ["GITAN", "GIMER", "VEBEK", "CTL", "VALPO", "LFPO25"],
+        ["GITAN", "GIMER", "VEBEK", "CTL", "VALPO", "LFPP25"],
         ["GITAN1", "GITAN*"]
       ]
     },
@@ -603,10 +603,10 @@
       },
       "body": [["EBOMA", "A120-|S250-"], ["MOLBA", "A100|S250-"], "MLN", "PO610", "#035"],
       "rwy": {
-        "LFPO25": []
+        "LFPP25": []
       },
       "draw": [
-        ["OKRIX", "EBOMA", "MOLBA", "MLN", "PO610", "LFPO25"],
+        ["OKRIX", "EBOMA", "MOLBA", "MLN", "PO610", "LFPP25"],
         ["OKRIX1", "OKRIX*"]
       ]
     },
@@ -618,10 +618,10 @@
       },
       "body": [["MEDWY", "A100|S200-"], ["VEKUH", "A100|S200-"]],
       "rwy": {
-        "LFPO25": []
+        "LFPP25": []
       },
       "draw": [
-        ["EMMAQ", "MEDWY", "VEKUH", "LFPO25"],
+        ["EMMAQ", "MEDWY", "VEKUH", "LFPP25"],
         ["EMMAQ1", "EMMAQ*"]
       ]
     }
@@ -629,10 +629,10 @@
 ,
   "spawnPatterns": [
     {
-      "origin": "LFPO",
+      "origin": "LFPP",
       "destination": "",
       "category": "departure",
-      "route": "LFPO24.EAST.BATAG.AWYDIKOL.DIKOL",
+      "route": "LFPP24.EAST.BATAG.AWYDIKOL.DIKOL",
       "commands": {
           "24": "c 80"
       },
@@ -647,10 +647,10 @@
       ]
     },
     {
-      "origin": "LFPO",
+      "origin": "LFPP",
       "destination": "",
       "category": "departure",
-      "route": "LFPO24.NORTH.PO262.AWYBOV.BOV",
+      "route": "LFPP24.NORTH.PO262.AWYBOV.BOV",
       "commands": {
           "24": "c 80"
       },
@@ -665,10 +665,10 @@
       ]
     },
     {
-      "origin": "LFPO",
+      "origin": "LFPP",
       "destination": "",
       "category": "departure",
-      "route": "LFPO24.SOUTH.ADADA.AWYAGOPA.AGOPA",
+      "route": "LFPP24.SOUTH.ADADA.AWYAGOPA.AGOPA",
       "commands": {
           "24": "c 80"
       },
@@ -683,10 +683,10 @@
       ]
     },
     {
-      "origin": "LFPO",
+      "origin": "LFPP",
       "destination": "",
       "category": "departure",
-      "route": "LFPO24.WEST.PO191.AWYLGL.LGL",
+      "route": "LFPP24.WEST.PO191.AWYLGL.LGL",
       "commands": {
           "24": "c 80"
       },
@@ -702,9 +702,9 @@
     },
     {
       "origin": "",
-      "destination": "LFPO",
+      "destination": "LFPP",
       "category": "arrival",
-      "route": "LUMAN.AWYLUMAN.CAD.CAD1.LFPO25",
+      "route": "LUMAN.AWYLUMAN.CAD.CAD1.LFPP25",
       "altitude": [12000, 14000],
       "speed": 270,
       "method": "random",
@@ -717,9 +717,9 @@
     },
     {
       "origin": "",
-      "destination": "LFPO",
+      "destination": "LFPP",
       "category": "arrival",
-      "route": "MATIX.AWYMATIX.GITAN.GITAN1.LFPO25",
+      "route": "MATIX.AWYMATIX.GITAN.GITAN1.LFPP25",
       "altitude": [13000, 15000],
       "speed": 270,
       "method": "random",
@@ -732,9 +732,9 @@
     },
     {
       "origin": "",
-      "destination": "LFPO",
+      "destination": "LFPP",
       "category": "arrival",
-      "route": "TUNOR.AWYTUNOR.OKRIX.OKRIX1.LFPO25",
+      "route": "TUNOR.AWYTUNOR.OKRIX.OKRIX1.LFPP25",
       "altitude": [16000, 18000],
       "speed": 270,
       "method": "random",
