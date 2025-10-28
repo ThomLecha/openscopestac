@@ -16,7 +16,7 @@ import Pilot from './Pilot/Pilot';
 import TimeKeeper from '../engine/TimeKeeper';
 import UiController from '../ui/UiController';
 import EventBus from '../lib/EventBus';
-import { AIRCRAFT_EVENT } from '../constants/eventNames';
+import { EVENT, AIRCRAFT_EVENT } from '../constants/eventNames';
 import {
     radians_normalize,
     angle_offset
@@ -1917,6 +1917,9 @@ export default class AircraftModel {
         }
 
         if (shouldMoveToNextFix) {
+            const waypointToLeave = this.fms.currentWaypoint;
+
+            this._triggerWaypointAutomaticCommand(waypointToLeave);
             if (!this.fms.hasNextWaypoint()) {
                 // we've hit this block because and aircraft is about to fly over the last waypoint in its flightPlan
                 this.pilot.maintainPresentHeading(this);
@@ -1943,6 +1946,23 @@ export default class AircraftModel {
         }
 
         return groundTrackToWaypoint;
+    }
+
+    /**
+     * Déclenche la commande automatique liée au point courant si nécessaire
+     *
+     * @for AircraftModel
+     * @method _triggerWaypointAutomaticCommand
+     * @param waypointModel {WaypointModel}
+     */
+    _triggerWaypointAutomaticCommand(waypointModel) {
+        if (!waypointModel || !waypointModel.automaticCommand) {
+            return;
+        }
+
+        EventBus.trigger(EVENT.RUN_PROCEDURE_COMMAND, this, waypointModel.automaticCommand);
+
+        waypointModel.setAutomaticCommand(null);
     }
 
     /**

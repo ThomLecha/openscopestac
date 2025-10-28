@@ -201,6 +201,7 @@ export default class AircraftController {
         this._eventBus.on(EVENT.SCROLL_TO_AIRCRAFT, this._onScrollToAircraft);
         this._eventBus.on(EVENT.REMOVE_AIRCRAFT, this._onRemoveAircraftHandler);
         this._eventBus.on(EVENT.REMOVE_AIRCRAFT_CONFLICT, this.removeConflict);
+        this._eventBus.on(EVENT.RUN_PROCEDURE_COMMAND, this._onRunProcedureCommand);
 
         return this;
     }
@@ -218,6 +219,7 @@ export default class AircraftController {
         this._eventBus.off(EVENT.SCROLL_TO_AIRCRAFT, this._onScrollToAircraft);
         this._eventBus.off(EVENT.REMOVE_AIRCRAFT, this._onRemoveAircraftHandler);
         this._eventBus.off(EVENT.REMOVE_AIRCRAFT_CONFLICT, this.removeConflict);
+        this._eventBus.off(EVENT.RUN_PROCEDURE_COMMAND, this._onRunProcedureCommand);
 
         return this;
     }
@@ -816,6 +818,25 @@ export default class AircraftController {
         const { relativePosition } = this.findAircraftByCallsign(callsign);
 
         this._eventBus.trigger(EVENT.REQUEST_TO_CENTER_POINT_IN_VIEW, relativePosition);
+    };
+
+    /**
+     * Applique silencieusement la commande associée à un point de procédure
+     *
+     * @for AircraftController
+     * @method _onRunProcedureCommand
+     * @param aircraftModel {AircraftModel}
+     * @param commandString {string}
+     * @private
+     */
+    _onRunProcedureCommand = (aircraftModel, commandString) => {
+        if (!aircraftModel || !commandString) {
+            return;
+        }
+
+        const command = new CommandParser(`${aircraftModel.getCallsign()} ${commandString}`).parse();
+
+        this._aircraftCommander.runCommands(aircraftModel, command.args, true);
     };
 
     /**

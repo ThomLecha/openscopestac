@@ -301,6 +301,15 @@ export const EVENT = {
     RANGE_RINGS_CHANGE: 'range-rings-change',
 
     /**
+     * Déclenche l'exécution silencieuse d'une commande liée à un point de procédure
+     *
+     * @memberof EVENT
+     * @property RUN_PROCEDURE_COMMAND
+     * @type {string}
+     */
+    RUN_PROCEDURE_COMMAND: 'run-procedure-command',
+
+    /**
      * A click has been registered in the unpause button shown within the
      * screen overlay whil the app is paused
      *

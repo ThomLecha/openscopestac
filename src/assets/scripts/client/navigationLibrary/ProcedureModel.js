@@ -110,6 +110,16 @@ export default class ProcedureModel {
         this._holdCollection = null;
 
         /**
+         * Commandes automatiques associées aux points de la procédure
+         *
+         * @property _commands
+         * @type {object}
+         * @default {}
+         * @private
+         */
+        this._commands = {};
+
+        /**
          * The verbally spoken name of the procedure
          *
          * Nonstandard spellings may be used to achieve the desired pronunciations,
@@ -219,6 +229,7 @@ export default class ProcedureModel {
         this._name = data.name;
         this._altitude = data.altitude;
         this._procedureType = procedureType;
+        this._commands = data.commands || {};
 
         if (this._procedureType === PROCEDURE_TYPE.SID) {
             return this._initEntriesAndExitsForSid(data);
@@ -246,6 +257,7 @@ export default class ProcedureModel {
         this._name = '';
         this._procedureType = '';
         this._altitude = null;
+        this._commands = {};
 
         return this;
     }
@@ -453,6 +465,10 @@ export default class ProcedureModel {
         const waypoint = new WaypointModel(data);
 
         const holdParameters = this._holdCollection.findHoldParametersByFix(waypoint.name);
+
+        if (this._commands && this._commands[waypoint.name]) {
+            waypoint.setAutomaticCommand(this._commands[waypoint.name]);
+        }
 
         if (holdParameters != null) {
             waypoint.setDefaultHoldParameters(holdParameters);

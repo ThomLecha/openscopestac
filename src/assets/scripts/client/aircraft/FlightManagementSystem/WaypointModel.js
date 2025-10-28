@@ -49,6 +49,16 @@ export default class WaypointModel {
         this._name = '';
         this._positionModel = null;
 
+        /**
+         * Commande automatique à déclencher lorsque ce point est franchi
+         *
+         * @property _automaticCommand
+         * @type {string|null}
+         * @default null
+         * @private
+         */
+        this._automaticCommand = null;
+
         this.init(data);
     }
 
@@ -197,6 +207,17 @@ export default class WaypointModel {
     }
 
     /**
+     * Retourne la commande automatique associée (s'il y en a une)
+     *
+     * @for WaypointModel
+     * @property automaticCommand
+     * @type {string|null}
+     */
+    get automaticCommand() {
+        return this._automaticCommand;
+    }
+
+    /**
      * Provide read-only public access to this._positionModel
      *
      * @for SpawnPatternModel
@@ -242,6 +263,17 @@ export default class WaypointModel {
      */
     get speedMinimum() {
         return this._speedMinimum;
+    }
+
+    /**
+     * Mémorise la commande automatique à exécuter pour ce point
+     *
+     * @for WaypointModel
+     * @method setAutomaticCommand
+     * @param command {string|null}
+     */
+    setAutomaticCommand(command) {
+        this._automaticCommand = command;
     }
 
     // ------------------------------ LIFECYCLE ------------------------------
@@ -292,6 +324,7 @@ export default class WaypointModel {
         this._isVectorWaypoint = false;
         this._name = '';
         this._positionModel = null;
+        this._automaticCommand = null;
 
         return this;
     }
