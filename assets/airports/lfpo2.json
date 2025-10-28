@@ -4,7 +4,7 @@
     "app": "Orly Approach",
     "dep": "Orly Departure"
   },
-  "icao": "LFPO",
+  "icao": "LFPO2",
   "iata": "ORY",
   "magnetic_north": 1.0,
   "ctr_radius": 100,
