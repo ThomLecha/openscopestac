@@ -288,7 +288,10 @@
     "PO189": ["N48.6640", "E1.8947"],
     "PO191": ["N48.7483", "E1.4863"],
     "LGL":   ["N48.7906", "E0.5303"],
-    "ELCOB": ["N49.0317", "E1.2209"]
+    "ELCOB": ["N49.0317", "E1.2209"],
+    "EMMAQ": ["N48.6914", "E2.8197"],
+    "MEDWY": ["N48.7614", "E2.8196"],
+    "VEKUH": ["N48.7896", "E2.7424"]
   },
   "restricted": [
     {
@@ -605,6 +608,21 @@
       "draw": [
         ["OKRIX", "EBOMA", "MOLBA", "MLN", "PO610", "LFPO25"],
         ["OKRIX1", "OKRIX*"]
+      ]
+    },
+    "EMMAQ1": {
+      "icao": "EMMAQ1",
+      "name": "Emmaq Un",
+      "entryPoints": {
+        "EMMAQ": [["EMMAQ", ""]]
+      },
+      "body": [["MEDWY", ""], ["VEKUH", ""], "LFPO25"],
+      "rwy": {
+        "LFPO25": []
+      },
+      "draw": [
+        ["EMMAQ", "MEDWY", "VEKUH", "LFPO25"],
+        ["EMMAQ1", "EMMAQ*"]
       ]
     }
   }
