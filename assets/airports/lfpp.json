@@ -26,7 +26,7 @@
   "defaultMaps": ["CTR PARIS (D) -2000 ft"],
   "airspace": [
     {
-      "_comment" : "CTR PARIS (D) -2000 ft",
+      "_comment" : ["CTR PARIS (D) -2000 ft"],
       "floor": 0,
       "ceiling": 20,
       "airspace_class": "D",
@@ -74,7 +74,7 @@
       ]
     },
     {
-      "_comment" : "TMA PARIS 2 (A) 1500-2500 ft",
+      "_comment" : ["TMA PARIS 2 (A) 1500-2500 ft"],
       "floor": 15,
       "ceiling": 25,
       "airspace_class": "A",
@@ -99,7 +99,7 @@
       ]
     },
     {
-      "_comment" : "TMA PARIS 3 (A) 2500-3500 ft",
+      "_comment" : ["TMA PARIS 3 (A) 2500-3500 ft"],
       "floor": 25,
       "ceiling": 35,
       "airspace_class": "A",
@@ -120,7 +120,7 @@
       ]
     },
     {
-      "_comment" : "TMA PARIS 4 (A) 3500-4500 ft",
+      "_comment" : ["TMA PARIS 4 (A) 3500-4500 ft"],
       "floor": 35,
       "ceiling": 45,
       "airspace_class": "A",
@@ -140,7 +140,7 @@
       ]
     },
     {
-      "_comment" : "TMA PARIS 5 (A) 4500-6500 ft",
+      "_comment" : ["TMA PARIS 5 (A) 4500-6500 ft"],
       "floor": 45,
       "ceiling": 65,
       "airspace_class": "A",
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "_comment" : "TMA PARIS 7 (A) 6500-8500 ft",
+      "_comment" : ["TMA PARIS 7 (A) 6500-8500 ft"],
       "floor": 65,
       "ceiling": 85,
       "airspace_class": "A",
@@ -192,7 +192,7 @@
       ]
     },
     {
-      "_comment" : "TMA PARIS 9 (A) 8500-11500 ft",
+      "_comment" : ["TMA PARIS 9 (A) 8500-11500 ft"],
       "floor": 85,
       "ceiling": 115,
       "airspace_class": "A",
@@ -228,7 +228,7 @@
       ]
     },
     {
-      "_comment" : "TMA PARIS 1 (D) 11500-19500 ft",
+      "_comment" : ["TMA PARIS 1 (D) 11500-19500 ft"],
       "floor": 115,
       "ceiling": 195,
       "airspace_class": "D",
@@ -612,16 +612,18 @@
       ]
     },
     "EMMAQ1": {
-      "_comment" : "Approche PBN-to-Final (et non une STAR) avec notamment la commande 'ils 25' sur VEKUH",
+      "_comment" : ["Approche PBN-to-Final (et non une STAR) avec notamment la commande 'ils 25' sur VEKUH.",
+                    "Sans le point artificiel _VEKUH2, les arrivées ne s'aligneraient pas sur l'axe.",
+                    "Ce n'est pas pour autant qu'on peut mettre la commande sur _VEKUH2 (à creuser pour voir pourquoi ça ne marche pas)."],
       "icao": "EMMAQ1",
       "name": "Emmaq Un",
       "commands": {
         "VEKUH": "ils 25"
       },
       "entryPoints": {
-        "EMMAQ": [["EMMAQ", "A60|S200-"]]
+        "EMMAQ": [["EMMAQ", "A65|S200-"]]
       },
-      "body": [["MEDWY", "A50|S200-"], ["VEKUH", "A40|S200-"], ["_VEKUH2", "A30|S200-"]],
+      "body": [["MEDWY", "A55|S200-"], ["VEKUH", "A45|S200-"], "_VEKUH2"],
       "rwy": {
         "LFPP25": []
       },
