@@ -779,13 +779,14 @@ export default class InputController {
      */
     processAircraftCommand() {
         const userCommand = this.$commandInput.val().trim().toLowerCase();
+        const commandToParse = this._applyAirportCommandShortcuts(userCommand);
 
         // Using try/catch here very much on purpose. the `CommandParser` will throw when it encounters any kind
         // of error; invalid length, validation, parse, etc. Here we catch those errors, log them to the screen
         // and then throw them all at once
         let cmd;
         try {
-            const parser = new CommandParser(userCommand);
+            const parser = new CommandParser(commandToParse);
             cmd = parser.parse();
         } catch (error) {
             UiController.ui_log('Command not understood', true);
@@ -800,6 +801,43 @@ export default class InputController {
         this.input.history_item = null;
 
         return this.processTransmitCommand(parsedCommand);
+    }
+
+    /**
+     * Apply the current airport's command shortcuts to a raw command string
+     *
+     * @for InputController
+     * @method _applyAirportCommandShortcuts
+     * @param command {string}
+     * @return {string}
+     * @private
+     */
+    _applyAirportCommandShortcuts(command) {
+        if (!command) {
+            return command;
+        }
+
+        const airport = AirportController.current;
+
+        if (!airport || !airport.shortcuts) {
+            return command;
+        }
+
+        const commandSegments = command.split(/\s+/).filter((segment) => segment.length > 0);
+
+        if (commandSegments.length < 2) {
+            return command;
+        }
+
+        const callsign = commandSegments[0];
+        const commandPortion = commandSegments.slice(1).join(' ');
+        const replacement = airport.shortcuts[commandPortion];
+
+        if (!replacement) {
+            return command;
+        }
+
+        return `${callsign} ${replacement.trim().toLowerCase()}`;
     }
 
     /**
