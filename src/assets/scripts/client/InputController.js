@@ -778,7 +778,9 @@ export default class InputController {
      * @method processAircraftCommand
      */
     processAircraftCommand() {
-        const userCommand = this.$commandInput.val().trim().toLowerCase();
+        const userCommand = this._expandAirportShortcuts(
+            this.$commandInput.val().trim().toLowerCase()
+        );
 
         // Using try/catch here very much on purpose. the `CommandParser` will throw when it encounters any kind
         // of error; invalid length, validation, parse, etc. Here we catch those errors, log them to the screen
@@ -800,6 +802,52 @@ export default class InputController {
         this.input.history_item = null;
 
         return this.processTransmitCommand(parsedCommand);
+    }
+
+    /**
+     * Replace shortcut commands defined for the active airport
+     *
+     * Shortcuts are defined without the aircraft callsign. When the
+     * user-entered command (minus the callsign) matches one of the
+     * shortcuts, the shortcut value is substituted so downstream
+     * processing receives the expanded command.
+     *
+     * @for InputController
+     * @method _expandAirportShortcuts
+     * @param userCommand {string}
+     * @return {string}
+     * @private
+     */
+    _expandAirportShortcuts(userCommand) {
+        if (!userCommand) {
+            return userCommand;
+        }
+
+        const commandSegments = userCommand.split(/\s+/).filter((segment) => segment);
+
+        if (commandSegments.length <= 1) {
+            return userCommand;
+        }
+
+        const [callsign, ...rawCommandSegments] = commandSegments;
+        const commandWithoutCallsign = rawCommandSegments.join(' ');
+        const airport = AirportController.current;
+
+        if (!airport || !airport.shortcuts) {
+            return userCommand;
+        }
+
+        const replacement = airport.shortcuts[commandWithoutCallsign];
+
+        if (!replacement) {
+            return userCommand;
+        }
+
+        const expandedCommand = `${callsign} ${replacement}`;
+
+        this.$commandInput.val(expandedCommand);
+
+        return expandedCommand;
     }
 
     /**

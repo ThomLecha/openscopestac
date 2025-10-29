@@ -187,6 +187,20 @@ export default class AirportModel {
          */
         this.airspace = null;
 
+        /**
+         * Mapping of shortcut command strings to their expanded commands
+         *
+         * Populated from the optional `shortcuts` field within an airport
+         * definition. Keys represent the command text (excluding callsign)
+         * that should trigger the shortcut and values are the full command
+         * replacements that should be executed instead.
+         *
+         * @property shortcuts
+         * @type {object}
+         * @default {}
+         */
+        this.shortcuts = {};
+
         // TODO: this should really be its own class possibly separate from the `AirportModel`
         /**
          * Container for airport terrain definition
@@ -377,6 +391,8 @@ export default class AirportModel {
         this.defaultWind.speed = data.wind.speed;
         this.defaultWind.angle = degreesToRadians(data.wind.angle);
 
+        this._buildShortcuts(data.shortcuts);
+
         this._initRangeRings(data.rangeRings);
         this.loadTerrain();
         this.buildAirspace(data.airspace);
@@ -409,6 +425,37 @@ export default class AirportModel {
             ),
             radius_nm: rangeRingData.radius_nm
         };
+    }
+
+    /**
+     * Normalize and cache shortcut mappings for the airport
+     *
+     * @for AirportModel
+     * @method _buildShortcuts
+     * @param {object} shortcutsData
+     * @private
+     */
+    _buildShortcuts(shortcutsData) {
+        this.shortcuts = {};
+
+        if (!shortcutsData) {
+            return;
+        }
+
+        Object.entries(shortcutsData).forEach(([rawKey, rawValue]) => {
+            if (typeof rawValue !== 'string') {
+                return;
+            }
+
+            const key = rawKey.trim().toLowerCase();
+            const value = rawValue.trim().toLowerCase();
+
+            if (!key || !value) {
+                return;
+            }
+
+            this.shortcuts[key] = value;
+        });
     }
 
     /**
