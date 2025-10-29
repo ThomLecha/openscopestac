@@ -621,9 +621,10 @@
         "VEKUH": "ils 25"
       },
       "entryPoints": {
-        "EMMAQ": [["EMMAQ", "A65|S200-"]]
+        "EMMAQ": [["EMMAQ", "A65|S200-"], ["MEDWY", "A55|S200-"]],
+        "MEDWY": [["MEDWY", "A55|S200-"]]
       },
-      "body": [["MEDWY", "A55|S200-"], ["VEKUH", "A45|S200-"], "_VEKUH2"],
+      "body": [["VEKUH", "A45|S200-"], "_VEKUH2"],
       "rwy": {
         "LFPP25": []
       },
