@@ -17,7 +17,7 @@
     "radius_nm": 5.0
   },
   "has_terrain": false,
-  "shortcuts": {
+  "shortcuts" : {
     "dct EMMAQ": "rr EMMAQ.EMMAQ1.LFPP25",
     "dct MEDWY": "rr MEDWY.EMMAQ1.LFPP25",
     "dct VEKUH": "rr VEKUH.EMMAQ1.LFPP25"

@@ -58,6 +58,8 @@ export const CLASSNAMES = {
     RUNWAY: 'runway',
     SPEED_2: 'speed-2',
     SPEED_5: 'speed-5',
+    SPEED_10: 'speed-10',
+    SPEED_20: 'speed-20',
     SPEED: 'speed',
     STRIP_VIEW_AIRCRAFT_TYPE: '.js-stripView-aircraftModel',
     STRIP_VIEW_ALTERNATE_AIRPORT_ID: '.js-stripView-alternateAirportId',
