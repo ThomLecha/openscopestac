@@ -1903,8 +1903,6 @@ export default class AircraftModel {
             return;
         }
 
-        console.debug(`[AUTO-CMD] ${this.callsign} franchit ${waypoint.name}, tentative d'exécution de «${commandString}»`);
-
         if (typeof window === 'undefined' || _isNil(window.aircraftController) || _isNil(window.aircraftController.aircraftCommander)) {
             return;
         }
@@ -1912,10 +1910,6 @@ export default class AircraftModel {
         try {
             const parser = new CommandParser(`${this.callsign} ${commandString}`.trim());
             const parsedCommand = parser.parse();
-
-            const result = window.aircraftController.aircraftCommander.runCommands(this, parsedCommand.args, true);
-
-            console.debug(`[AUTO-CMD] ${this.callsign} résultat runCommands`, result);
         } catch (error) {
             console.error(`Impossible d'exécuter la commande automatique '${commandString}' pour ${this.callsign}`, error);
         }
@@ -1953,16 +1947,6 @@ export default class AircraftModel {
         if (!this.fms.currentWaypoint.isFlyOverWaypoint) {
             shouldMoveToNextFix = closeToBeingOverFix || shouldFlyByFix;
         }
-
-        console.debug('[LNAV]', this.callsign, {
-            waypoint: this.fms.currentWaypoint.name,
-            distance_nm: distanceToWaypoint.toFixed(2),
-            turnInitiation_nm: turnInitiationDistance.toFixed(2),
-            closeToBeingOverFix,
-            closeEnoughToFlyByFix,
-            shouldFlyByFix,
-            shouldMoveToNextFix
-        });
 
         if (shouldMoveToNextFix) {
             const waypointJustPassed = this.fms.currentWaypoint;
