@@ -4,7 +4,7 @@
     "app": "Orly Approach",
     "dep": "Orly Departure"
   },
-  "icao": "LFPO",
+  "icao": "LFPP",
   "iata": "ORY",
   "magnetic_north": 1.0,
   "ctr_radius": 100,
@@ -26,7 +26,7 @@
   "defaultMaps": ["CTR PARIS (D) -2000 ft"],
   "airspace": [
     {
-      "airspace_name" : "CTR PARIS (D) -2000 ft",
+      "_comment" : ["CTR PARIS (D) -2000 ft"],
       "floor": 0,
       "ceiling": 20,
       "airspace_class": "D",
@@ -74,7 +74,7 @@
       ]
     },
     {
-      "airspace_name" : "TMA PARIS 2 (A) 1500-2500 ft",
+      "_comment" : ["TMA PARIS 2 (A) 1500-2500 ft"],
       "floor": 15,
       "ceiling": 25,
       "airspace_class": "A",
@@ -99,7 +99,7 @@
       ]
     },
     {
-      "airspace_name" : "TMA PARIS 3 (A) 2500-3500 ft",
+      "_comment" : ["TMA PARIS 3 (A) 2500-3500 ft"],
       "floor": 25,
       "ceiling": 35,
       "airspace_class": "A",
@@ -120,7 +120,7 @@
       ]
     },
     {
-      "airspace_name" : "TMA PARIS 4 (A) 3500-4500 ft",
+      "_comment" : ["TMA PARIS 4 (A) 3500-4500 ft"],
       "floor": 35,
       "ceiling": 45,
       "airspace_class": "A",
@@ -140,7 +140,7 @@
       ]
     },
     {
-      "airspace_name" : "TMA PARIS 5 (A) 4500-6500 ft",
+      "_comment" : ["TMA PARIS 5 (A) 4500-6500 ft"],
       "floor": 45,
       "ceiling": 65,
       "airspace_class": "A",
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "airspace_name" : "TMA PARIS 7 (A) 6500-8500 ft",
+      "_comment" : ["TMA PARIS 7 (A) 6500-8500 ft"],
       "floor": 65,
       "ceiling": 85,
       "airspace_class": "A",
@@ -192,7 +192,7 @@
       ]
     },
     {
-      "airspace_name" : "TMA PARIS 9 (A) 8500-11500 ft",
+      "_comment" : ["TMA PARIS 9 (A) 8500-11500 ft"],
       "floor": 85,
       "ceiling": 115,
       "airspace_class": "A",
@@ -228,7 +228,7 @@
       ]
     },
     {
-      "airspace_name" : "TMA PARIS 1 (D) 11500-19500 ft",
+      "_comment" : ["TMA PARIS 1 (D) 11500-19500 ft"],
       "floor": 115,
       "ceiling": 195,
       "airspace_class": "D",
@@ -248,47 +248,51 @@
     }
   ],
 "fixes": {
-    "LUMAN": ["N47.9394", "E0.4133"],
-    "CAD":   ["N48.0592", "E1.3871"],
-    "SOTIP": ["N48.1314", "E1.4599"],
-    "ODILO": ["N48.2418", "E1.5716"],
-    "MATIX": ["N50.0983", "E3.9142"],
-    "GITAN": ["N49.3769", "E4.0347"],
-    "GIMER": ["N49.3655", "E3.9738"],
-    "VEBEK": ["N49.2686", "E3.6831"],
-    "TUNOR": ["N47.8833", "E4.1411"],
-    "OKRIX": ["N47.9661", "E3.5675"],
-    "EBOMA": ["N48.2021", "E3.2061"],
-    "MOLBA": ["N48.2950", "E3.0629"],
-    "VASOL": ["N48.5451", "E1.8819"],
-    "PO615": ["N48.5779", "E2.3730"],
-    "CTL":   ["N49.1378", "E3.5777"],
-    "VALPO": ["N48.8347", "E3.1216"],
-    "MLN":   ["N48.4558", "E2.8133"],
-    "PO610": ["N48.5884", "E2.8324"],
-    "PO243": ["N48.6813", "E2.2264"],
-    "PO300": ["N48.4939", "E2.3675"],
-    "PO302": ["N48.5240", "E2.8505"],
-    "BATAG": ["N48.8228", "E3.3723"],
-    "DIKOL": ["N49.1375", "E4.0492"],
-    "RANUX": ["N49.1388", "E4.3615"],
-    "BAXIR": ["N48.7906", "E3.8699"],
-    "PO245": ["N48.6666", "E2.1921"],
-    "PO248": ["N48.6340", "E2.0906"],
-    "PO260": ["N48.7677", "E1.7401"],
-    "PO262": ["N49.2334", "E2.0265"],
-    "BOV":   ["N49.4364", "E2.1532"],
-    "EGOZE": ["N49.5526", "E2.4895"],
-    "PO244": ["N48.6724", "E2.2054"],
-    "PO246": ["N48.6629", "E2.1838"],
-    "PO270": ["N48.5348", "E2.0581"],
-    "PO271": ["N48.4815", "E2.0087"],
-    "ADADA": ["N48.2950", "E2.0036"],
-    "AGOPA": ["N48.0833", "E2.0097"],
-    "PO189": ["N48.6640", "E1.8947"],
-    "PO191": ["N48.7483", "E1.4863"],
-    "LGL":   ["N48.7906", "E0.5303"],
-    "ELCOB": ["N49.0317", "E1.2209"]
+    "LUMAN":  ["N47.9394", "E0.4133"],
+    "CAD":    ["N48.0592", "E1.3871"],
+    "SOTIP":  ["N48.1314", "E1.4599"],
+    "ODILO":  ["N48.2418", "E1.5716"],
+    "MATIX":  ["N50.0983", "E3.9142"],
+    "GITAN":  ["N49.3769", "E4.0347"],
+    "GIMER":  ["N49.3655", "E3.9738"],
+    "VEBEK":  ["N49.2686", "E3.6831"],
+    "TUNOR":  ["N47.8833", "E4.1411"],
+    "OKRIX":  ["N47.9661", "E3.5675"],
+    "EBOMA":  ["N48.2021", "E3.2061"],
+    "MOLBA":  ["N48.2950", "E3.0629"],
+    "VASOL":  ["N48.5451", "E1.8819"],
+    "PO615":  ["N48.5779", "E2.3730"],
+    "CTL":    ["N49.1378", "E3.5777"],
+    "VALPO":  ["N48.8347", "E3.1216"],
+    "MLN":    ["N48.4558", "E2.8133"],
+    "PO610":  ["N48.5884", "E2.8324"],
+    "PO243":  ["N48.6813", "E2.2264"],
+    "PO300":  ["N48.4939", "E2.3675"],
+    "PO302":  ["N48.5240", "E2.8505"],
+    "BATAG":  ["N48.8228", "E3.3723"],
+    "DIKOL":  ["N49.1375", "E4.0492"],
+    "RANUX":  ["N49.1388", "E4.3615"],
+    "BAXIR":  ["N48.7906", "E3.8699"],
+    "PO245":  ["N48.6666", "E2.1921"],
+    "PO248":  ["N48.6340", "E2.0906"],
+    "PO260":  ["N48.7677", "E1.7401"],
+    "PO262":  ["N49.2334", "E2.0265"],
+    "BOV":    ["N49.4364", "E2.1532"],
+    "EGOZE":  ["N49.5526", "E2.4895"],
+    "PO244":  ["N48.6724", "E2.2054"],
+    "PO246":  ["N48.6629", "E2.1838"],
+    "PO270":  ["N48.5348", "E2.0581"],
+    "PO271":  ["N48.4815", "E2.0087"],
+    "ADADA":  ["N48.2950", "E2.0036"],
+    "AGOPA":  ["N48.0833", "E2.0097"],
+    "PO189":  ["N48.6640", "E1.8947"],
+    "PO191":  ["N48.7483", "E1.4863"],
+    "LGL":    ["N48.7906", "E0.5303"],
+    "ELCOB":  ["N49.0317", "E1.2209"],
+    "EMMAQ":  ["N48.6914", "E2.8197"],
+    "MEDWY":  ["N48.7614", "E2.8196"],
+    "VEKUH":  ["N48.7896", "E2.7424"],
+    "_VEKUH2":["N48.7680", "E2.6230"]
   },
   "restricted": [
     {
@@ -504,14 +508,14 @@
       "icao": "EAST",
       "name": "Orly Est",
       "rwy": {
-          "LFPO24": []
+          "LFPP24": []
       },
       "body": ["PO243"],
       "exitPoints": {
         "BATAG": [["PO300", "A100-"], "PO302", ["BATAG", "A80-"]]
       },
       "draw": [
-        ["LFPO24", "PO243", "PO300", "PO302", "BATAG"],
+        ["LFPP24", "PO243", "PO300", "PO302", "BATAG"],
         ["EAST", "BATAG*"]
       ]
     },
@@ -519,14 +523,14 @@
       "icao": "NORTH",
       "name": "Orly Nord",
       "rwy": {
-          "LFPO24": []
+          "LFPP24": []
       },
       "body": ["PO243"],
       "exitPoints": {
         "PO262": ["PO245", "PO248", "PO260", ["PO262", "A80-"]]
       },
       "draw": [
-        ["LFPO24", "PO243", "PO245", "PO248", "PO260", "PO262"],
+        ["LFPP24", "PO243", "PO245", "PO248", "PO260", "PO262"],
         ["NORTH", "PO262*"]
       ]
     },
@@ -534,14 +538,14 @@
       "icao": "SOUTH",
       "name": "Orly Sud",
       "rwy": {
-          "LFPO24": []
+          "LFPP24": []
       },
       "body": ["PO243"],
       "exitPoints": {
         "ADADA": ["PO244", "PO246", "PO270", ["PO271", "A100-"], ["ADADA", "A80-"]]
       },
       "draw": [
-        ["LFPO24", "PO243", "PO244", "PO246", "PO270", "PO271", "ADADA"],
+        ["LFPP24", "PO243", "PO244", "PO246", "PO270", "PO271", "ADADA"],
         ["SOUTH", "ADADA*"]
       ]
     },
@@ -549,14 +553,14 @@
       "icao": "WEST",
       "name": "Orly Ouest",
       "rwy": {
-          "LFPO24": []
+          "LFPP24": []
       },
       "body": ["PO245"],
       "exitPoints": {
         "PO191": ["PO248", "PO189", ["PO191", "A80-"]]
       },
       "draw": [
-        ["LFPO24", "PO245", "PO248", "PO189", "PO191"],
+        ["LFPP24", "PO245", "PO248", "PO189", "PO191"],
         ["WEST", "PO191*"]
       ]
     }
@@ -570,10 +574,10 @@
       },
       "body": [["SOTIP", "A130-"], ["ODILO", "A110|S280-"], ["VASOL", "A110"], ["PO615", "A110"], "#083"],
       "rwy": {
-        "LFPO25": []
+        "LFPP25": []
       },
       "draw": [
-        ["CAD", "SOTIP", "ODILO", "VASOL", "PO615", "LFPO25"],
+        ["CAD", "SOTIP", "ODILO", "VASOL", "PO615", "LFPP25"],
         ["CAD1", "CAD*"]
       ]
     },
@@ -585,10 +589,10 @@
       },
       "body": ["GIMER", ["VEBEK", "A110|S250-"], "CTL", "VALPO", "#224"],
       "rwy": {
-        "LFPO25": []
+        "LFPP25": []
       },
       "draw": [
-        ["GITAN", "GIMER", "VEBEK", "CTL", "VALPO", "LFPO25"],
+        ["GITAN", "GIMER", "VEBEK", "CTL", "VALPO", "LFPP25"],
         ["GITAN1", "GITAN*"]
       ]
     },
@@ -600,21 +604,45 @@
       },
       "body": [["EBOMA", "A120-|S250-"], ["MOLBA", "A100|S250-"], "MLN", "PO610", "#035"],
       "rwy": {
-        "LFPO25": []
+        "LFPP25": []
       },
       "draw": [
-        ["OKRIX", "EBOMA", "MOLBA", "MLN", "PO610", "LFPO25"],
+        ["OKRIX", "EBOMA", "MOLBA", "MLN", "PO610", "LFPP25"],
         ["OKRIX1", "OKRIX*"]
+      ]
+    },
+    "EMMAQ1": {
+      "_comment" : ["Approche PBN-to-Final (et non une vraie STAR comme ci-dessus), avec notamment la commande 'ils 25' sur VEKUH.",
+                    "Sans le point artificiel _VEKUH2, les arrivées ne s'aligneraient pas sur l'axe (angle d'approche trop ouvert).",
+                    "Ce n'est pas pour autant qu'on peut mettre la commande sur _VEKUH2 (à creuser pour voir pourquoi ça ne marche pas).",
+                    "Avec un 'rr EMMAQ.EMMAQ1.LFPP25' ou un 'rr MEDWY.EMMAQ1.LFPP25', l'avion va bien suivre la route et être autorisé à l'ILS piste 25."],
+      "icao": "EMMAQ1",
+      "name": "Emmaq Un",
+      "commands": {
+        "VEKUH": "ils 25"
+      },
+      "entryPoints": {
+        "EMMAQ": [["EMMAQ", "A65|S200-"], ["MEDWY", "A55|S200-"], ["VEKUH", "A45|S200-"]],
+        "MEDWY": [["MEDWY", "A55|S200-"], ["VEKUH", "A45|S200-"]],
+        "VEKUH": [["VEKUH", "A45|S200-"]]
+      },
+      "body": ["_VEKUH2"],
+      "rwy": {
+        "LFPP25": []
+      },
+      "draw": [
+        ["EMMAQ", "MEDWY", "VEKUH", "LFPP25"],
+        ["EMMAQ1", "EMMAQ*"]
       ]
     }
   }
 ,
   "spawnPatterns": [
     {
-      "origin": "LFPO",
+      "origin": "LFPP",
       "destination": "",
       "category": "departure",
-      "route": "LFPO24.EAST.BATAG.AWYDIKOL.DIKOL",
+      "route": "LFPP24.EAST.BATAG.AWYDIKOL.DIKOL",
       "commands": {
           "24": "c 80"
       },
@@ -629,10 +657,10 @@
       ]
     },
     {
-      "origin": "LFPO",
+      "origin": "LFPP",
       "destination": "",
       "category": "departure",
-      "route": "LFPO24.NORTH.PO262.AWYBOV.BOV",
+      "route": "LFPP24.NORTH.PO262.AWYBOV.BOV",
       "commands": {
           "24": "c 80"
       },
@@ -647,10 +675,10 @@
       ]
     },
     {
-      "origin": "LFPO",
+      "origin": "LFPP",
       "destination": "",
       "category": "departure",
-      "route": "LFPO24.SOUTH.ADADA.AWYAGOPA.AGOPA",
+      "route": "LFPP24.SOUTH.ADADA.AWYAGOPA.AGOPA",
       "commands": {
           "24": "c 80"
       },
@@ -665,10 +693,10 @@
       ]
     },
     {
-      "origin": "LFPO",
+      "origin": "LFPP",
       "destination": "",
       "category": "departure",
-      "route": "LFPO24.WEST.PO191.AWYLGL.LGL",
+      "route": "LFPP24.WEST.PO191.AWYLGL.LGL",
       "commands": {
           "24": "c 80"
       },
@@ -684,9 +712,9 @@
     },
     {
       "origin": "",
-      "destination": "LFPO",
+      "destination": "LFPP",
       "category": "arrival",
-      "route": "LUMAN.AWYLUMAN.CAD.CAD1.LFPO25",
+      "route": "LUMAN.AWYLUMAN.CAD.CAD1.LFPP25",
       "altitude": [12000, 14000],
       "speed": 270,
       "method": "random",
@@ -699,9 +727,9 @@
     },
     {
       "origin": "",
-      "destination": "LFPO",
+      "destination": "LFPP",
       "category": "arrival",
-      "route": "MATIX.AWYMATIX.GITAN.GITAN1.LFPO25",
+      "route": "MATIX.AWYMATIX.GITAN.GITAN1.LFPP25",
       "altitude": [13000, 15000],
       "speed": 270,
       "method": "random",
@@ -714,9 +742,9 @@
     },
     {
       "origin": "",
-      "destination": "LFPO",
+      "destination": "LFPP",
       "category": "arrival",
-      "route": "TUNOR.AWYTUNOR.OKRIX.OKRIX1.LFPO25",
+      "route": "TUNOR.AWYTUNOR.OKRIX.OKRIX1.LFPP25",
       "altitude": [16000, 18000],
       "speed": 270,
       "method": "random",

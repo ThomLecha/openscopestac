@@ -678,5 +678,11 @@
         "level": "beginner",
         "name": "Paris-Orly Airport",
         "premium": false
+    },
+    {
+        "icao": "lfpp",
+        "level": "beginner",
+        "name": "Paris-Orly Airport - PBN to Final",
+        "premium": false
     }
 ]

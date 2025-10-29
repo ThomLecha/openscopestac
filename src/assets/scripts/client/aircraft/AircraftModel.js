@@ -15,6 +15,7 @@ import ModeController from './ModeControl/ModeController';
 import Pilot from './Pilot/Pilot';
 import TimeKeeper from '../engine/TimeKeeper';
 import UiController from '../ui/UiController';
+import CommandParser from '../commands/parsers/CommandParser';
 import EventBus from '../lib/EventBus';
 import { AIRCRAFT_EVENT } from '../constants/eventNames';
 import {
@@ -1884,6 +1885,37 @@ export default class AircraftModel {
     }
 
     /**
+     * Exécute, si nécessaire, la commande automatique attachée au point franchi
+     *
+     * @for AircraftModel
+     * @method _executeWaypointCommandIfAvailable
+     * @param waypoint {WaypointModel}
+     * @private
+     */
+    _executeWaypointCommandIfAvailable(waypoint) {
+        if (_isNil(waypoint) || !waypoint.hasAutoCommand) {
+            return;
+        }
+
+        const commandString = waypoint.consumeAutoCommand();
+
+        if (_isNil(commandString) || commandString === '') {
+            return;
+        }
+
+        if (typeof window === 'undefined' || _isNil(window.aircraftController) || _isNil(window.aircraftController.aircraftCommander)) {
+            return;
+        }
+
+        try {
+            const parser = new CommandParser(`${this.callsign} ${commandString}`.trim());
+            const parsedCommand = parser.parse();
+        } catch (error) {
+            console.error(`Impossible d'exécuter la commande automatique '${commandString}' pour ${this.callsign}`, error);
+        }
+    }
+
+    /**
      * This will update the FIX for the aircraft and will change the aircraft's heading
      *
      * @for AircraftModel
@@ -1917,6 +1949,10 @@ export default class AircraftModel {
         }
 
         if (shouldMoveToNextFix) {
+            const waypointJustPassed = this.fms.currentWaypoint;
+
+            this._executeWaypointCommandIfAvailable(waypointJustPassed);
+
             if (!this.fms.hasNextWaypoint()) {
                 // we've hit this block because and aircraft is about to fly over the last waypoint in its flightPlan
                 this.pilot.maintainPresentHeading(this);
