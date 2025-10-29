@@ -612,8 +612,8 @@
       ]
     },
     "EMMAQ1": {
-      "_comment" : ["Approche PBN-to-Final (et non une STAR) avec notamment la commande 'ils 25' sur VEKUH.",
-                    "Sans le point artificiel _VEKUH2, les arrivées ne s'aligneraient pas sur l'axe.",
+      "_comment" : ["Approche PBN-to-Final (et non une vraie STAR comme ci-dessus), avec notamment la commande 'ils 25' sur VEKUH.",
+                    "Sans le point artificiel _VEKUH2, les arrivées ne s'aligneraient pas sur l'axe (angle d'approche trop ouvert).",
                     "Ce n'est pas pour autant qu'on peut mettre la commande sur _VEKUH2 (à creuser pour voir pourquoi ça ne marche pas)."],
       "icao": "EMMAQ1",
       "name": "Emmaq Un",
