@@ -615,12 +615,12 @@
       "icao": "EMMAQ1",
       "name": "Emmaq Un",
       "commands": {
-        "VEKUH2": "ils 25"
+        "VEKUH": "ils 25"
       },
       "entryPoints": {
-        "EMMAQ": [["EMMAQ", "A50|S200-"]]
+        "EMMAQ": [["EMMAQ", "A60|S200-"]]
       },
-      "body": [["MEDWY", "A40|S200-"], ["VEKUH", "A30|S200-"], ["VEKUH2", "A30|S200-"]],
+      "body": [["MEDWY", "A50|S200-"], ["VEKUH", "A40|S200-"], ["VEKUH2", "A30|S200-"]],
       "rwy": {
         "LFPP25": []
       },
