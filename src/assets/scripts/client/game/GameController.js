@@ -88,6 +88,25 @@ const GAME_EVENTS_DESCRIPTION = {
     NO_TAKEOFF_SEPARATION: 'Aircraft violated same runway separation requirements'
 };
 
+const TIMEWARP_SEQUENCE = [1, 2, 5, 10, 20];
+
+const TIMEWARP_TITLE_MAP = {
+    1: 'Set time warp to 2',
+    2: 'Set time warp to 5',
+    5: 'Set time warp to 10',
+    10: 'Set time warp to 20',
+    20: 'Reset time warp'
+};
+
+const TIMEWARP_CLASS_MAP = {
+    2: SELECTORS.CLASSNAMES.SPEED_2,
+    5: SELECTORS.CLASSNAMES.SPEED_5,
+    10: SELECTORS.CLASSNAMES.SPEED_10,
+    20: SELECTORS.CLASSNAMES.SPEED_20
+};
+
+const TIMEWARP_CLASSES = Object.values(TIMEWARP_CLASS_MAP).filter((classname) => !!classname);
+
 /**
  * @class GameController
  */
@@ -291,21 +310,7 @@ class GameController {
         TimeKeeper.updateSimulationRate(nextValue);
         EventTracker.recordEvent(TRACKABLE_EVENT.OPTIONS, 'timewarp', nextValue);
 
-        const $fastForwards = $(SELECTORS.DOM_SELECTORS.FAST_FORWARDS);
-
-        if (nextValue === 1) {
-            $fastForwards.removeClass(SELECTORS.CLASSNAMES.SPEED_2);
-            $fastForwards.removeClass(SELECTORS.CLASSNAMES.SPEED_5);
-            $fastForwards.prop('title', 'Set time warp to 2');
-        } else if (nextValue < 5) {
-            $fastForwards.removeClass(SELECTORS.CLASSNAMES.SPEED_5);
-            $fastForwards.addClass(SELECTORS.CLASSNAMES.SPEED_2);
-            $fastForwards.prop('title', 'Set time warp to 5');
-        } else {
-            $fastForwards.removeClass(SELECTORS.CLASSNAMES.SPEED_2);
-            $fastForwards.addClass(SELECTORS.CLASSNAMES.SPEED_5);
-            $fastForwards.prop('title', 'Reset time warp');
-        }
+        this._updateTimewarpButtonState(nextValue);
     }
 
     /**
@@ -318,13 +323,19 @@ class GameController {
      * @method game_timewarp_toggle
      */
     game_timewarp_toggle() {
-        if (TimeKeeper.simulationRate >= 5) {
+        const currentRate = TimeKeeper.simulationRate;
+        const currentIndex = TIMEWARP_SEQUENCE.indexOf(currentRate);
+
+        if (currentIndex === -1) {
             this.updateTimescale(1);
-        } else if (TimeKeeper.simulationRate === 1) {
-            this.updateTimescale(2);
-        } else {
-            this.updateTimescale(5);
+
+            return;
         }
+
+        const nextIndex = (currentIndex + 1) % TIMEWARP_SEQUENCE.length;
+        const nextValue = TIMEWARP_SEQUENCE[nextIndex];
+
+        this.updateTimescale(nextValue);
     }
 
     /**
@@ -598,11 +609,7 @@ class GameController {
         TimeKeeper.setPause(true);
 
         // update visual state of the timewarp control button for consistency
-        const $fastForwards = $(SELECTORS.DOM_SELECTORS.FAST_FORWARDS);
-
-        $fastForwards.removeClass(SELECTORS.CLASSNAMES.SPEED_2);
-        $fastForwards.removeClass(SELECTORS.CLASSNAMES.SPEED_5);
-        $fastForwards.prop('title', 'Set time warp to 2');
+        this._updateTimewarpButtonState(1);
     }
 
     /**
@@ -645,6 +652,26 @@ class GameController {
 
         this.theme = THEME[themeName];
     };
+
+    _updateTimewarpButtonState(nextValue) {
+        const $fastForwards = $(SELECTORS.DOM_SELECTORS.FAST_FORWARDS);
+
+        if ($fastForwards.length === 0) {
+            return;
+        }
+
+        $fastForwards.removeClass(TIMEWARP_CLASSES.join(' '));
+
+        const nextClassname = TIMEWARP_CLASS_MAP[nextValue];
+
+        if (nextClassname) {
+            $fastForwards.addClass(nextClassname);
+        }
+
+        const title = TIMEWARP_TITLE_MAP[nextValue] || TIMEWARP_TITLE_MAP[20];
+
+        $fastForwards.prop('title', title);
+    }
 }
 
 export default new GameController();

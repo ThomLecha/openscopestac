@@ -119,17 +119,46 @@
     box-shadow: inset 10px 0 1px -6px @blue-light
 }
 
-.control-icon.speed-2,
+.control-icon.speed-2 {
+    box-shadow: inset 0 4px 0 @timewarp-speed-2;
+}
+
+.control-icon.speed-2:hover {
+    box-shadow: inset 0 4px 0 mix(@timewarp-speed-2, @white, 30%);
+}
+
+.control-icon.speed-5 {
+    box-shadow: inset 0 4px 0 @timewarp-speed-5;
+}
+
+.control-icon.speed-5:hover {
+    box-shadow: inset 0 4px 0 mix(@timewarp-speed-5, @white, 30%);
+}
+
+.control-icon.speed-10 {
+    box-shadow: inset 0 4px 0 @timewarp-speed-10;
+}
+
+.control-icon.speed-10:hover {
+    box-shadow: inset 0 4px 0 mix(@timewarp-speed-10, @white, 30%);
+}
+
+.control-icon.speed-20 {
+    box-shadow: inset 0 4px 0 @timewarp-speed-20;
+}
+
+.control-icon.speed-20:hover {
+    box-shadow: inset 0 4px 0 mix(@timewarp-speed-20, @white, 30%);
+}
+
 .control-icon.active {
     box-shadow: inset 0 4px 0 @blue-light;
 }
 
-.control-icon.speed-5,
 .warning-button {
     box-shadow: inset 0 4px 0 @red
 }
 
-.control-icon.speed-5:hover,
 .warning-button:hover {
     box-shadow: inset 0 4px 0 rgba(255, 119, 102, .5);
 }

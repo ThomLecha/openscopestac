@@ -165,7 +165,7 @@ class TimeKeeper {
          * would have at normal speed
          *
          * It is possible to set any numeric value via system command, though the
-         * UI enforces values of: `1`, `2` and `5` via the timewarp toggle button
+         * UI enforces values of: `1`, `2`, `5`, `10` and `20` via the timewarp toggle button
          *
          * @property _simulationRate
          * @type {number}
