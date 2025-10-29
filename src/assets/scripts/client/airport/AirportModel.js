@@ -230,6 +230,14 @@ export default class AirportModel {
         };
 
         /**
+         * Map of command shortcuts available for the airport
+         *
+         * @property shortcuts
+         * @type {object}
+         */
+        this.shortcuts = {};
+
+        /**
          * @for AirportModel
          * @property ctr_radius
          * @type {nunmber}
@@ -377,6 +385,7 @@ export default class AirportModel {
         this.defaultWind.speed = data.wind.speed;
         this.defaultWind.angle = degreesToRadians(data.wind.angle);
 
+        this._initShortcuts(data.shortcuts);
         this._initRangeRings(data.rangeRings);
         this.loadTerrain();
         this.buildAirspace(data.airspace);
@@ -409,6 +418,36 @@ export default class AirportModel {
             ),
             radius_nm: rangeRingData.radius_nm
         };
+    }
+
+    /**
+     * Initialize command shortcuts for the airport
+     *
+     * @for AirportModel
+     * @method _initShortcuts
+     * @param {object} shortcutData
+     * @private
+     */
+    _initShortcuts(shortcutData) {
+        this.shortcuts = {};
+
+        if (!shortcutData) {
+            return;
+        }
+
+        _forEach(shortcutData, (replacement, shortcutKey) => {
+            if (typeof replacement !== 'string') {
+                return;
+            }
+
+            const normalizedKey = shortcutKey.trim().toLowerCase();
+
+            if (normalizedKey.length === 0) {
+                return;
+            }
+
+            this.shortcuts[normalizedKey] = replacement.trim();
+        });
     }
 
     /**

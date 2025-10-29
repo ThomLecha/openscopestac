@@ -267,6 +267,7 @@ All properties in this section are required
 * **arrivalRunway** ― The default runway to use for arrivals.
 * **departureRunway** ― The default runway to use for departures.
 * **defaultMaps** ― The names of the maps that should be rendered by default.
+* **shortcuts (optional)** ― A dictionary mapping the command portion entered after an aircraft callsign to a replacement command. When a player issues a command that matches a key (case-insensitive), the corresponding value is executed instead. For example: `"dct EMMAQ": "rr EMMAQ.EMMAQ1.LFPP25"`.
 
 ### Airspace
 
