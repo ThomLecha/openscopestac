@@ -1910,6 +1910,7 @@ export default class AircraftModel {
         try {
             const parser = new CommandParser(`${this.callsign} ${commandString}`.trim());
             const parsedCommand = parser.parse();
+            window.aircraftController.aircraftCommander.runCommands(this, parsedCommand.args, true);
         } catch (error) {
             console.error(`Impossible d'exécuter la commande automatique '${commandString}' pour ${this.callsign}`, error);
         }
