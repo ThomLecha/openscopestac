@@ -18,9 +18,12 @@
   },
   "has_terrain": false,
   "shortcuts" : {
-    "dct EMMAQ": "rr EMMAQ.EMMAQ1.LFPP25",
-    "dct MEDWY": "rr MEDWY.EMMAQ1.LFPP25",
-    "dct VEKUH": "rr VEKUH.EMMAQ1.LFPP25"
+    "dct EMMAQ i 25":   "rr EMMAQ.EMMAQ1.LFPP25",
+    "dct EMMAQ ils 25": "rr EMMAQ.EMMAQ1.LFPP25",
+    "dct MEDWY i 25":   "rr MEDWY.EMMAQ1.LFPP25",
+    "dct MEDWY ils 25": "rr MEDWY.EMMAQ1.LFPP25",
+    "dct VEKUH i 25":   "rr VEKUH.EMMAQ1.LFPP25",
+    "dct VEKUH ils 25": "rr VEKUH.EMMAQ1.LFPP25"
   },
   "wind": {
       "angle": 220,
